@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Place</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+        @keyframes blink-effect {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .blink {
+            animation: blink-effect .3s step-end infinite;
+        }
+
+        .blinking {
+            -webkit-animation: blink 3.5s ease-in-out alternate;
+            -moz-animation: blink 3.5s ease-in-out alternate;
+            animation: blink 3.5s ease-in-out alternate;
+        }
+
+        @-webkit-keyframes blink {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes blink {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0px;
+            font-family: 'Abril Fatface', cursive;
+        }
+
+        body {
+            background-image: url("img/backgroundimg.jpg");
+            background-size: cover;
+            background-position: 50% 50%;
+            padding: 50px;
+            overflow-x: none;
+            -ms-user-select: none;
+            -moz-user-select: -moz-none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+
+        .container {
+            width: 1200px;
+            margin: auto;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        ul {
+            padding: 0px;
+            margin: 0px;
+        }
+
+
+
+        .container>.header {
+            position: relative;
+            height: 100px;
+            margin-top: 70px;
+        }
+
+        .container>.header>.title {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
+
+        .container>.header>img:hover {
+            animation: blink-effect .2s step-end infinite;
+            opacity: 80%;
+        }
+
+        .container>.header>.title>input#menu {
+            display: none;
+        }
+
+        .container>.header>.title>div.navi {
+            display: none;
+        }
+
+        .container>.header>.title>input#menu:checked+div.navi {
+            display: block;
+        }
+
+        .container>.header>.title>label.menu {
+            font-size: 30px;
+            line-height: 60px;
+            cursor: pointer;
+            color: white;
+            transition-duration: all .3s;
+        }
+
+        .container>.header>.title>label.menu:hover {
+            opacity: 50%;
+        }
+
+
+
+        .container>.header>.title>.navi {
+            position: absolute;
+            width: 800px;
+            top: 70px;
+            right: -70px;
+            transition-duration: 1s;
+        }
+
+        .container>.header>.title>.navi>ul>li {
+            float: left;
+            width: 160px;
+            list-style: none;
+            color: white;
+            font-size: 20px;
+            text-align: right;
+            line-height: 37px;
+            margin-right: 30px;
+            cursor: pointer;
+            transition-duration: 0.5s;
+        }
+
+        #menu1+#muenu2+#menu3+#menu4 {
+            position: relative;
+            top: 0px;
+            right: 0px;
+        }
+
+
+        .container>.header>.title>.navi a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding-right: 10px;
+            transition-duration: 1s;
+        }
+
+        .container>.header>.title>.navi>ul>li>#hr {
+            border: 0;
+            background-color: white;
+            height: 1px;
+            opacity: 60%;
+        }
+
+        .container>.header>.title>.navi>ul>li>#submenu {
+            display: none;
+        }
+
+
+        .container>.header>.title>.navi>ul>li:hover>#submenu {
+            display: block;
+
+            width: 730px;
+            height: 550px;
+
+            position: absolute;
+            top: 37px;
+            right: 70px;
+            padding: 50px;
+            padding-left: 75px;
+
+            text-align: left;
+            font-size: 16px;
+            line-height: 20px;
+
+            color: rgb(211, 211, 211);
+            background-color: #00000070;
+            cursor: crosshair;
+        }
+
+        #submenu>img {
+            margin: auto;
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        #submenu>#title1 {
+            font-size: 25px;
+            margin-bottom: 5px;
+            color: #9addff;
+        }
+
+        #submenu>#title2 {
+            font-size: 25px;
+            margin-bottom: 5px;
+            color: #9a9fff;
+        }
+
+        #submenu>#title3 {
+            font-size: 25px;
+            margin-bottom: 5px;
+            color: #f1d6ff;
+        }
+
+        #submenu>#title4 {
+            font-size: 25px;
+            margin-bottom: 5px;
+            color: #f5fcb9;
+        }
+
+        #submenu>#contents {
+            font-size: 12px;
+            padding-top: 5px;
+            padding-right: 15px;
+        }
+
+        .container>.header>.title>.navi>ul>li#menu1>a:hover {
+            color: #9addff;
+        }
+
+        .container>.header>.title>.navi>ul>li#menu2>a:hover {
+            color: #9a9fff;
+        }
+
+        .container>.header>.title>.navi>ul>li#menu3>a:hover {
+            color: #f1d6ff;
+        }
+
+        .container>.header>.title>.navi>ul>li#menu4>a:hover {
+            color: #f5fcb9;
+        }
+
+
+
+        .container>.content {
+            margin-top: 450px;
+            color: white;
+            position: relative;
+            top: 0;
+        }
+
+        .container>.content>#p1 {
+            font-size: 30px;
+        }
+
+        .container>.content>#p2 {
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+
+        .container>.content>#p3 {
+            font-size: 15px;
+        }
+
+
+
+        .container>.footer {
+            width: 100%;
+            position: relative;
+            top: 25px;
+        }
+
+        .container>.footer>.movemove {
+            position: absolute;
+            right: 0;
+            top: -60px
+        }
+
+        .container>.footer div {
+            float: left;
+        }
+
+        .container>.footer>div>div {
+            float: left;
+        }
+
+        .container>.footer>.movemove>.snsmove>div {
+            width: 40px;
+            height: 40px;
+            list-style: none;
+            border: 1px solid #ffffff50;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            line-height: 37px;
+            padding: 0px;
+            margin-right: 5px;
+            transition-duration: 1s;
+        }
+
+        .container>.footer>.movemove>.snsmove>div:hover {
+            border: 1px solid white;
+            border-radius: 50%;
+        }
+
+        .container>.footer>.movemove>.snsmove>#tab {
+            border: none;
+            width: 10px;
+            opacity: 50%;
+        }
+
+        .container>.footer>.movemove>.chatmove>#call {
+            border: none;
+            width: 80px;
+            font-size: 15px;
+            color: white;
+            line-height: 40px;
+            display: none;
+        }
+
+
+        .container>.footer>.movemove>.chatmove:hover>#call {
+            width: 75px;
+            height: 40px;
+            cursor: pointer;
+            color: white;
+            display: block;
+
+            transition-duration: 1s;
+        }
+
+        .container>.footer>.movemove>.chatmove>#chat {
+            width: 40px;
+            height: 40px;
+            list-style: none;
+            border: 1px solid #ffffff;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            line-height: 37px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <a href="http://spaceage.co.kr/" target="_blank"><img src="img/toplogo.png" alt="toplogo"></a>
+            <div class="title">
+                <label class="menu" for="menu">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+                <input id="menu" type="checkbox">
+
+
+                <div class="navi">
+                    <ul>
+                        <li id="menu1">
+                            <div id="hr"></div><a href="#">01. Earth</a>
+                            <div id="submenu">
+                                <img class="image blinking" src="img/earth.png" alt="earth">
+                                <p id="title1">All About Earth</p>
+                                <p id="contents">Our home planet Earth is a rocky, terrestrial planet.
+                                    It has a solid and active surface with mountains, valleys, canyons, plains and so
+                                    much more.
+                                    Earth is special because it is an ocean planet. Water covers 70% of Earth's surface.
+                                </p>
+                            </div>
+                        </li>
+                        <li id="menu2">
+                            <div id="hr"></div><a href="#">02. Sun</a>
+                            <div id="submenu">
+                                <img class="image blinking" src="img/sun.png" alt="sun">
+                                <p id="title2">All About Sun</p>
+                                <p id="contents">A star is a hot, glowing ball of gas.
+                                    When you look up in the night sky, you can see countless twinkling stars.
+                                    Can you see any stars during the daytime?
+                                    Of course! The light of daytime comes from our closest star: the Sun.</p>
+                            </div>
+                        </li>
+                        <li id="menu3">
+                            <div id="hr"></div><a href="#">03. Pluto</a>
+                            <div id="submenu">
+                                <img class="image blinking" src="img/pluto.png" alt="pluto">
+                                <p id="title3">All About Pluto</p>
+                                <p id="contents">Pluto is categorized as a dwarf planet.
+                                    In 2006, Pluto was categorized with three other objects in the solar system that are
+                                    about the same small size as Pluto:
+                                    Ceres, Makemake and Eris. These objects, along with Pluto, are much smaller than the
+                                    "other" planets.</p>
+                            </div>
+                        </li>
+                        <li id="menu4">
+                            <div id="hr"></div><a href="#">04. Galaxy</a>
+                            <div id="submenu">
+                                <img class="image blinking" src="img/galaxy.png" alt="galaxy">
+                                <p id="title4">All About Galaxy</p>
+                                <p id="contents">We live on a planet called Earth that is part of our solar system.
+                                    But where is our solar system? It’s a small part of the Milky Way Galaxy.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <p id="p1">MISSION:</p>
+            <p id="p2"><a href="https://spaceplace.nasa.gov/">ABOVE AND BEYOND</a></p>
+            <p id="p3">Aerospace And Defense</p>
+            <p id="p3">Space and Satellite</p>
+            <p id="p3">Innovate and adapt through all stages of your mission</p>
+        </div>
+        <div class="footer">
+            <div class="movemove">
+                <div class="snsmove">
+                    <div><a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                    <div><a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                    <div><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                    <div><a href="https://www.twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                    <div id="tab">|</div>
+                </div>
+                <div class="chatmove">
+                    <div id="call" class="blink"><a href="https://tua.gov.tr/en" target="_blank">CALL US.</a></div>
+                    <div id="chat"><i class="fa-regular fa-comments"></i></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

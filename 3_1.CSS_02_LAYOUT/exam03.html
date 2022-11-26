@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {box-sizing: border-box;}
+
+        body{
+            /* padding: 0px; 효과없음. html가 padding 일수도 */
+            margin: 0px;
+        }
+        ul,ul *{border: 1px solid black;}
+        /* li 태그는 display:block 이다. */
+
+        ul{
+            overflow: hidden;
+            padding: 0px;
+            margin: 0px; /* 적용시 약간 위로 올라감 */
+            height: 40px;
+        }
+
+        ul>li{
+            float: left;
+            list-style: none;
+            /* margin: 0px; 효과없음. 애초에 오른쪽도 띄워졌을 것 */
+            width: 25%;
+            height: 100%;
+            text-align: center;
+            line-height: 35px;  /* 정렬하고자 하는 텍스트가 딱 한 줄만 있을 때 사용 */
+            /* 퍼센트 값 적용 안됨 */
+            /* 글씨는 우리가 보지못하는 줄을 가지고 있다. 글씨는 그 줄의 중앙에 있다.
+            그래서 list 의 중앙은 아니다. */
+        }
+        /* vertical align 는 어렵다. */
+
+        ul>li:hover{
+            cursor: pointer;
+            background-color: black;
+            color: white;
+        }
+
+        /* 공간(여백)을 만들어내는 2가지 방식
+        box 입장에서 container 는 margin으로 밀어내기
+        container 입장에서 box 는 padding으로 밀어내기
+        margin(여백), padding(채워주다)
+        margin : 기준점 안쪽 / 바깥 여백 영역
+        padding : 기준점 바깥쪽 / 안쪽 여백 영역 
+        참고: padding은 요소의 내부에 빈 공간을 추가합니다. 반면 margin은 요소의 주위에 빈 공간을 만듭니다. */
+
+    </style>
+</head>
+<body>
+    
+    <ul>
+        <li>Home</li>
+        <li>About Me</li>
+        <li>Portfolio</li>
+        <li>Contact</li>
+    </ul>
+
+</body>
+</html>

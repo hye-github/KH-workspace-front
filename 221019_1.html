@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
+    <script>
+        function changeImage() {
+            $("#myImg").attr("src",$("#sel").val());
+        }
+    </script>
+
+</head>
+
+<body>
+</head>
+* select 박스를 이용해 선택한 과일의 이미지가 화면에 나타나도록 하고자 코드를 작성하였다.
+이미지가 화면에 나타나도록 하나의 과일을 선택했지만 선택한 과일의 이미지가 나타나지 않았다.
+화면에 이미지가 나타지 않은 원인과 조치내용을 작성하시오.
+
+    <select id="sel" onchange="changeImage()">
+        <option value="img_1.png" id="op1">레몬</option>
+        <option value="img_2.png" id="op2">라임</option>
+        <option value="img_3.png" id="op3">딸기</option>
+    </select>
+
+    <img id="myImg">
+
+</body>
+
+</html>

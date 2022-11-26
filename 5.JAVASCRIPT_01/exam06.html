@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 
+    JavaScript Event
+    Event : Browser 위에서 사용자가 취하는 모든 행동
+    Event Source : 이벤트가 발생하게 된 근원지
+    Event Listener : 이벤트 소스로부터 발생하는 이벤트를 종류별로 감시하는 감시자들
+    Event Handler : 특정 이벤트를 감지했을 때, 어떤 동작을 수행 할 지에 대해 조치 사항을 가지는 함수
+    -->
+
+    <button id="btn">Pop!</button>
+
+    <script>
+
+        // function pop(){
+        //     alert("Hello");
+        // };
+
+        // let popBtn = document.getElementById("btn"); // getElementById = Event Source 
+        // popBtn.onclick = pop; // onclick = Event Listener
+        // // popBtn아, onclick이 발생하면 pop 으로 찾아가.
+
+        // popBtn.onclick = pop();
+        // // -> 실수. pop() pop 함수의 return 값을 넣으라는 뜻이 되어버림.
+
+
+
+        // callback function : 개발자에 의해 작성된 메서드(function) 이
+        // 개발자에 의해 call 되지 않고, 사용자의 특정 Trigger 에 의해
+        // 실행 되어지는 함수
+
+        let popBtn = document.getElementById("btn"); // getElementById = Event Source 
+        popBtn.onclick =  function(){ // 사용자의 트리거(onclick)에 의해서 콜 된다.
+            alert("Hello");
+        };
+
+
+    </script>
+
+</body>
+</html>

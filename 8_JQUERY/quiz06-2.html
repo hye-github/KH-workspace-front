@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <style>
+        .title {
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Input Controls</legend>
+        <input type="text" placeholder="제목" id="title"><br>
+        <input type="text" placeholder="내용" id="contents"><br>
+        <input type="text" placeholder="작성자" id="writer">
+        <button id="add">추가하기</button>
+    </fieldset>
+    <hr>
+    <table border="1px">
+        <tr class="title">
+            <td>제목</td>
+            <td>내용</td>
+            <td>작성자</td>
+            <td>삭제</td>
+        </tr>
+    </table>
+
+    <script>
+
+        // $(document).on("click",".del",function(){
+        //     this.remove(); // 버튼만 삭제. tr을 지우는게 목적.
+        // })
+
+        $(document).on("click", ".del", function () {
+            // console.log(this);
+            // console.log($(this).parent());
+            // $(this).parent().parent().remove();
+            $(this).closest("tr").fadeOut(1000, function(){
+                $(this).closest("tr").remove();
+            });
+        })
+
+
+        // $(".del").on("click",function(){ // 다이나믹 바인딩 이슈. 나중에 동적으로 추가된 요소들에게는 이벤트가 들어가지않는다. 이건 정적 엘레먼트에 이벤트 부여 코드.
+        //     alert("Test");
+        // });
+
+        // 이벤트 리스너 핸들러 / 패런드 이벤트 리스너 핸들러 순으로 입력이 된다. 문법적 차이가 난다
+
+        // $("table").on("click",function(){ // 동적 엘레먼트에 이벤트 부여를 해야지 정상 동작한다. 가장 가까운 정적 parents 찾기
+        //     alert("Test");
+        // });
+
+        $(document).on("click", ".del", function () { // "" 들어가는 애들은 선택자. document 는 선택자가 아니다. 객체이다.
+            alert("Test");
+        });
+
+        $("#add").on("click", function () {
+
+            let title = $("#title").val();
+            let contents = $("#contents").val();
+            let writer = $("#writer").val();
+            let delBtn = $("<button>")
+            delBtn.append("X");
+            delBtn.addClass("del");
+
+            let tr = $("<tr>");
+            tr.append($("<td>").append(title)).append($("<td>").append(contents)).append($("<td>").append(writer)).append($("<td>").append(delBtn));
+
+
+
+            tr.hide();
+
+            $("table").append(tr);
+
+            tr.fadeIn(1000);
+
+
+
+            // $(".del").on("click",function(){ // 순서의 문제라 생각해서 이쪽에 넣으면 버튼 추가마다 경고창이 추가로 뜬다.
+            //     alert("Test");
+            // });
+
+            // btnDel.on("click",function(){ // 대상을 바꿔서 지금 만들어진 버튼에만 이벤트를 부여하겠다. 라고 해야함.
+            //     alert("Test");
+            // });
+
+        });
+
+    </script>
+</body>
+
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <fieldset>
+        <legend>Input Controls</legend>
+        <input type="text" placeholder="제목 입력" id="title"><br>
+        <input type="text" placeholder="내용 입력" id="contents"><br>
+        <input type="text" placeholder="작성자 입력" id="writer">
+        <button id="add">추가하기</button>
+    </fieldset>
+    <hr>
+    <table border=1>
+        <tr>
+            <th>제목</th>
+            <th>내용</th>
+            <th>작성자</th>
+        </tr>
+
+    </table>
+    <script>
+        $("#add").on("click",function(){
+            let title = $("#title").val();
+            let contents = $("#contents").val();
+            let writer = $("#writer").val();
+
+            let tr = $("<tr>");
+
+            let tdTitle = $("<td>");
+            tdTitle.append(title);
+
+            let tdContents = $("<td>");
+            tdContents.append(contents);
+
+            let tdWriter = $("<td>");
+            tdWriter.append(writer);
+
+            tr.append(tdTitle);
+            tr.append(tdContents);
+            tr.append(tdWriter);
+
+            $("table").append(tr);
+
+            $("#title").val("");
+            $("#contents").val("");
+            $("#writer").val("");
+            $("#title").focus();
+
+        })
+    </script>
+</body>
+</html> -->

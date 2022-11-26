@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 속성 선택자 (도저히 선택할 수 없을 때, 최후의 보루) */
+        /*
+        ^ : 속성에 대한 startsWith
+        $ : 속성에 대한 endsWith
+        * : 속성에 대한 containsWith
+        */
+
+        p[name=pname]{
+            background-color: pink;
+        }
+        p[name]{
+            color: blue;
+        }
+
+
+        /* 위 아래 동일 */
+        p[class="pclass"]{
+            background-color: aqua;
+        }
+        .pclass{
+            color: blueviolet;
+        }
+        /* 위 아래 동일 */
+
+
+        /* 이어서도 가능 */
+        p[class="pclass"],[name]{
+            background-color: hotpink;
+        }
+        
+
+        p[class^="pcl"]{ /* pcl로 시작하는 이름을 가진 starts with */
+            color: red;
+        }
+
+        p[class$="abc"]{ /* abc로 끝나는 이름을 가진 ends with */
+            color: red;
+        }
+
+        p[class*="lab"]{ /* lab를 포함한 이름을 가진 contains with */
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <p name="pname">Test1 문자열 입니다.</p>
+    <p id="pid">Test2 문자열 입니다.</p>
+    <p class="pclass">Test3 문자열 입니다.</p>
+    <p class="pclabc">Test3 문자열 입니다.</p>
+
+</body>
+</html>

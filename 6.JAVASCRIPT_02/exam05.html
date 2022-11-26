@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 객체 -->
+
+    <script>
+        // [] 대괄호는 배열, {} 중괄호는 객체를 뜻함
+
+        // Javascript 에서 객체를 사용하는 방법 3가지
+
+        // 1. 기본객체 ( object ) 를 사용하는 방법
+        let student = new Object();
+        student.name = "Jack";
+        student.kor = 100;
+        student.eng = 50;
+//        student.1 = "one"; // 얘는 여기에서 숫자를 넣을 수 없다. Literal 방식에서는 숫자 넣는거 가능. (.) 연산자는 뒤쪽에 숫자 오는걸 용납하지않는다.
+        console.log(student); // 클래스 생성 안하고 단번에 인스턴스 생성해서 가능한것은 js에서 바로 가능한 자연스러운 일
+
+
+
+
+        // 2. 객체 Literal 을 사용하는 방법 (중요 - 프론트엔드 개발자 아닌데도 자주 보게 되는 문법)
+        let person = {
+            "id" : 1001,
+            "name" : "Tom",
+            "contact" : "01012344321",
+            "1" : "one" // 얘도 가능. 
+        }; 
+        // key : value,  key : value,  key : value ...
+
+        console.log(person.id);
+        console.log(person.name);
+        console.log(person.contact);
+//        console.log(person.1); // (.) 연산자는 뒤쪽에 숫자 오는걸 용납하지않는다.
+        console.log(person["1"]); // 대괄호로 접근하는게 사용 범위가 넓다. 실무에서는 개발자 취향에 따라서 쓴다. 팀 컨벤션에 따라 정해짐.
+
+        // JSON : 1. JavaScript Object Notation 자바 스크립트 오브젝트 노테이션의 약자 : 자바스크립트에서 객체를 표현하는문법
+        //        2. Cross Language Data Serialization
+        // 데이터를 연결하는 직렬화 방식으로 사용하는 방식
+        // JSON이랑 XML이랑 동시 사용 중.
+        
+        // 직렬화 . 면접질문
+        // 역직렬화 . 면접질문
+
+
+
+        // 3. 생성자를 사용하는 방법 (중요 - 프론트엔드 개발자 아닌데도 자주 보게 되는 문법)
+
+        function CafeMenu(pid, pname, price) { // 함수들은 전부다 생성자가 될 수 있는 능력을 가지고 있다. 
+                             //함수랑 생성자랑 구분하기 너무 힘드니까 생성자 메서드의 이름을 첫글자를 대문자로 하자. 
+            this.pid = pid;
+            this.pname = pname; // this. 무조건 붙여야 멤버필드에 대입이 되는거임. 안붙이면 아무 기능도 하지않는다.
+            this.price = price;
+            this.printInfo = function(){ // 객체의 멤버 메서드 만드는 방법
+                console.log(this.pid + " : " + this.pname + " : " + this.price)
+            }
+        }
+
+        let menu = new CafeMenu(1001,"Americano",2000); // 사라지기 전에 멤버필드로 저장해놔야한다. 선언 하지않고 사용하면 그냥 만들어진다.
+
+        console.log(menu.pid); // 1001
+        console.log(menu.pname); // Americano
+        console.log(menu.price); // 2000
+
+        menu.printInfo(); // 1001 : Americano : 2000
+
+
+        console.log(menu["pid"]); // console.log(menu.pid); 필드 이름을 붙여서 이렇게도 멤버에 접근 가능하다.
+
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>

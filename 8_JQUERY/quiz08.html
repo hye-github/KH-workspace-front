@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파일 첨부 기능</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>
+        // window.onload = function(){} 와 동일
+        $(function(){
+            
+        })
+    </script>
+</head>
+
+<body>
+    <div>파일첨부 <button id="add">+</button></div>
+    <div id="addFile"></div>
+
+    <script>
+        $(document).on("click", ".del", function () {
+            $(this).closest(".delDiv").remove();
+        });
+
+        $("#add").on("click", function () {
+            if($("input[type=file]").length > 4){ // 저게 지금은 상관없는데 같은페이지에 input[type=file]이 다른곳에서 또쓰면 갯수 다같이 공유돼서 문제가 됨
+                alert("파일 첨부는 최대 5개 까지만 가능합니다.")
+                return; // return은 그냥 밑 코드 실행안되게 함수 빠져나가는 용도
+            };
+
+            if ($(".delDiv").length < 5) {
+                let div = $("<div>");
+                div.addClass("delDiv");
+                div.css("margin", "10px");
+                let inputFile = $("<input>");
+                inputFile.attr("type","file"); // attribute : 속성
+                inputFile.append("파일선택");
+                let delLink = $("<a>");
+                delLink.css("margin-left", "30px").css("text-decoration","none").css("cursor","pointer");
+                delLink.html("X");
+                delLink.addClass("del");
+                div.append(inputFile).append(delLink);
+                
+                $("#addFile").append(div);
+            };
+        });
+    </script>
+
+    <!-- <script>
+        let count = 1;
+
+        $(document).on("click", ".del", function () {
+            $(this).closest(".delDiv").remove();
+            count--;
+        });
+
+        $("#add").on("click", function () {
+            if (count <= 5) {
+                let div = $("<div>");
+                div.addClass("delDiv");
+                div.css("margin", "10px");
+                let inputFile = $("<input type=file>");
+                inputFile.append("파일선택");
+                let delLink = $("<a>");
+                delLink.css("margin-left", "30px");
+                delLink.append("X");
+                delLink.addClass("del");
+                div.append(inputFile).append(delLink);
+
+                $("#addFile").append(div);
+            };
+            count++;
+        });
+    </script> -->
+</body>
+
+</html>

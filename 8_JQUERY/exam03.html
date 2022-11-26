@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <style>
+        div{border:1px solid black;}
+    </style>
+</head>
+<body>
+    <!-- 동적 요소 제어 -->
+    <!-- before / prepend / append / after -->
+
+    <div id="box">
+        기존 데이터
+    </div>
+
+    <script>
+
+        let prependBtn = $("<button>"); // 선택자로 버튼을 찾는게 아니라, 버튼을 만들겠다 인데, 메모리 램 속에는 버튼 태그가 만들어진거임. 
+        prependBtn.html("Prepend");     // 그런데 ui에 추가하겠다고(화면에 랜더링 된 상태는 아님) 작성한 것은 아니다.
+        
+        let prependDiv = $("<div>");
+        prependDiv.append(prependBtn);
+        $("#box").prepend(prependDiv);
+
+        let appendInput = $("<input>");
+        appendInput.attr("type","text");
+        let appendDiv = $("<div>");
+        appendDiv.append(appendInput);
+        $("#box").append(appendDiv);
+
+        $("#box").before("이곳이 before"); // div 자체의 앞
+        $("#box").after("이곳이 after"); // div 자체의 뒤
+
+        // $("#box").prepend("이곳이 prepend<br>"); // div 내부의 앞
+        // $("#box").append("<br>이곳이 append"); // div 내부의 뒤
+        // $("#box").before("이곳이 before"); // div 자체의 앞
+        // $("#box").after("이곳이 after"); // div 자체의 뒤
+    </script>
+</body>
+</html>
+
+

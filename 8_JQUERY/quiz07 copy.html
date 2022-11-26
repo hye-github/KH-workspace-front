@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <style>
+        *{box-sizing: border-box;}
+        /* div{border: 1px solid black;} */
+        .container{
+            width: 90%;
+            margin: auto; margin-top: 10px;
+        }
+        input{width: 100%; height: 100%; padding-left: 10px;}
+        textarea{width: 100%; height: 100%; padding-left: 10px;}
+        hr{margin-top: 30px; margin-bottom: 30px; width: 90%;}
+        .writers{width: 30%; height: 35px; margin-bottom: 5px;}
+        .contents{width: 100%; height: 70px;}
+        .contents>div:first-child{width:70%; height: 100%; float: left;}
+        .contents>div:last-child{width:30%; height: 100%; float: left; overflow-y: auto;}
+        #register{width: 100%; height: 100%;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="writers"><input type="text" id="writer" placeholder="작성자 명을 입력해주세요."></div>
+        <div class="contents">
+            <div><textarea id="reply" placeholder="내용을 입력해주세요."></textarea></div><div><button id="register">등록</button></div>
+        </div>
+    </div>
+    <hr>
+
+    <script>
+        
+        $(document).on("click","#del",function(){
+            $(this).closest("#seq").remove();
+        })
+
+
+        $("#register").on("click", function(){
+            let writer = $("#writer").val();
+            let reply = $("#reply").val();
+
+            let reWrapDiv = $("<div id=seq>");
+
+            let wrreDiv = $("<div>");
+                
+            let writerDiv = $("<div>");
+            let replyDiv = $("<div>");
+
+            let btnDiv = $("<div>");
+            
+            writerDiv.append(writer);
+            writerDiv.css("background-color","#7f99f8").css("padding","10px").css("height","100%").css("color","white");
+            replyDiv.append(reply);
+            replyDiv.css("border","1px solid #7f99f8").css("padding","10px").css("height","100%").css("margin-bottom","10px");
+            let btn = $("<button id=del>")
+            btn.css("background-color","#7f99f8").css("color","white").css("width","20px").css("display","block").css("height","20px").css("border-style","none").css("border-style","none").css("border-radius","50%");
+            btnDiv.append(btn.append("X"));
+            btnDiv.css("width","5%").css("float","left");
+            
+            wrreDiv.css("width","95%").css("float","left");
+            
+            reWrapDiv.css("width","100%").css("width","90%").css("margin","auto");
+
+            wrreDiv.append(writerDiv).append(replyDiv);
+
+            reWrapDiv.append(wrreDiv).append(btnDiv.append(btnDiv));
+
+            $("hr").after(reWrapDiv);
+
+            $("#writer").val("");
+            $("#reply").val("");
+
+        });
+    </script>
+</body>
+</html>

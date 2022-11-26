@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전화번호 유효성 검사</title>
+</head>
+<body>
+    <input type="text" id="phone" placeholder="핸드폰 번호를 입력('-')생략">
+    <button id="check">검증</button>
+    <fieldset>
+        <legend>검증 결과</legend>
+        <div id="result"></div>
+    </fieldset>
+
+    <script>
+        // 강사님 코드
+        // DOM level 3 방식을 적용해보자.
+        let checkBtn = document.getElementById("check");
+
+        checkBtn.addEventListener("click",function(){  // 앞에 on을 붙이지않는다. onclick 아님. 3가지 방법이 있음. (addEventListener, onclick, <button onclick="myFunction()">)
+            let phone = document.getElementById("phone").value;
+            let regex = /01\d\d{3,4}\d{4}/; 
+            // addEventListener 안에 있는지, 밖에 있는지에 따라 달라짐. 
+            // /g + 밖에 있으면 검증 누를 때 맞음, 틀림이 계속 번갈아가면서 나타난다.
+            // /g + 안에 있으면 검증 누를 때 맞음만 제대로 나타난다.
+            // 버튼을 클릭할 때마다 정규식을 새거를 만들어서 테스트해도 위치 초기화 잘된다.
+            // 버튼 클릭할 때마다 정규식 새로 만들어져서 검사 시작 하니까 안에 넣으면 다 괜찮다. 포인터 위치 자동 초기화 됨.
+            // 지역변수 설명 연장선
+            // /g 를 하면 한번더 검색했을 때 뒤에 또 있나없나 살펴본다. 
+            // 정규식 포인터라는 가리키는 자가 맨 앞을 가리키고 있는데, 
+            // 정규표현식을 실행할 때 계속  한글자씩 이동하면서 이 조건을 만족하는지 살펴보는 코드일 뿐이다.
+
+            let result = regex.test(phone);
+
+            if(result){
+                document.getElementById("result").innerHTML = "핸드폰 번호 형식이 맞습니다.";
+            } else {
+                document.getElementById("result").innerHTML = "핸드폰 번호 형식이 아닙니다.";
+            }
+        });
+    </script>
+
+
+
+
+
+    <script>
+        // let phoneIn = document.getElementById("phone");
+        // let checkBtn = document.getElementById("check");
+        // let resultDiv = document.getElementById("result");
+
+        // checkBtn.onclick = function() {
+        //     // let regex = /^01[016789][- ]?\d{3,4}[- ]?\d{4}$/;
+        //     // let boolean = regex.test(phoneIn.value);
+        //     // resultDiv.innerHTML = boolean;
+        //     // phoneIn.value = "";
+
+        //     let regex3 = /^01[16789][-\. ]?\d{3}[-\. ]?\d{4}$/;
+        //     let boolean3 = regex3.test(phoneIn.value);
+        //     let regex4 = /^01[016789][-\. ]?\d{4}[-\. ]?\d{4}$/;
+        //     let boolean4 = regex4.test(phoneIn.value);
+
+        //     if(boolean3){  // boolean3 == true 랑 동의어. switch랑 같음. !boolean3 = faulse
+        //         resultDiv.innerHTML = " \" " + phoneIn.value + " \" 는 010외로 시작하는 핸드폰 번호가 맞습니다.";
+        //         phoneIn.value = "";
+        //     } else if(boolean4){
+        //         resultDiv.innerHTML = " \" " + phoneIn.value + " \" 는 010으로 시작하는 핸드폰 번호가 맞습니다.";
+        //         phoneIn.value = "";
+        //     } else {
+        //         resultDiv.innerHTML = "옳바른 번호로 다시 입력하세요.";
+        //         phoneIn.value = "";
+        //     }
+            
+        // }
+    </script>
+</body>
+</html>

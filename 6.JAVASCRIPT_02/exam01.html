@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- JavaScript Arry -->
+    <!-- 기본출력 / 변수 / 연산자 / 제어문 / 함수(이벤트) / 배열 / 객체 (Web API) // -> 이 다음에 제이쿼리 -->
+
+    <script>
+        let arr = []; // 이게 배열 만든거. [] 대괄호가 배열을 의미한다.
+                        // 자바에서는 사이즈를 명시하지만, 자바의 ArryList랑 비슷하다. 알아서 사이즈를 늘리고 줄이는 기능을 가지고 있다.
+        console.log(arr);
+
+        arr[0] = "Hello";
+        arr[1] = "World";
+        console.log(arr);
+
+        arr.push("JavaScript");
+        arr.push("Arry");
+        console.log(arr);
+
+        console.log(arr[0]);
+        console.log(arr[1]);
+
+
+        let arr1 = [1,2,3]; // 초기값 넣고싶으면 이렇게.
+        console.log(arr1);
+
+
+
+        let arr2 = [];
+        arr2[0] = 123;
+        arr2[1] = "Hello";
+        arr2[2] = function() {alert("Hello")};
+        arr2[3] = [1,2,3,];
+
+        console.log(arr2[0]);
+        console.log(arr2[1]);
+        arr2[2](); // 리턴값 없어서 console.log 안씀 // 배열 뒤에 소괄호 왜? - 함수를 콜하기 위해서.
+        console.log(arr2[3][0]);
+
+        // 내용이 아예 다르게 출력되는지 알았어서, 요소랑 배열 출력 차이면 이해했습니다. 표현의 차이임.
+
+
+    </script>
+
+
+
+</body>
+</html>

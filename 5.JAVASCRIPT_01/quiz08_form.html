@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5f6f7;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .logo {
+            margin-top: 60px;
+            margin-bottom: 40px;
+            display: block;
+            width: 240px;
+            height: 44px;
+            background-image: url(https://static.nid.naver.com/images/ui/join/m_naver_logo_20191126.png);
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: 240px auto;
+            color: transparent;
+        }
+
+        div {
+            margin: auto;
+            width: 460px;
+        }
+
+        .divTitle {
+            padding-top: 20px;
+            padding-left: 2px;
+            height: 43px;
+            font-size: 15px;
+            font-weight: 900;
+        }
+
+        .divHidden {
+            height: 21px;
+            padding-top: 10px;
+            padding-left: 2px;
+            font-size: 12px;
+            color: red;
+        }
+
+        .divInput {
+            margin-top: 3px;
+            border: 1px #dadada solid;
+            height: 51px;
+            position: relative;
+        }
+
+        input {
+            width: 100%;
+            height: 100%;
+            padding-left: 15px;
+            border: none;
+        }
+
+        input:focus {
+            outline-color: #03c75a;
+        }
+
+        .fa-lock {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translatey(-50%);
+            color:  #EEEEEE;
+        }
+
+        .btn {
+            margin-top: 50px;
+        }
+
+        button {
+            width: 180px;
+            height: 50px;
+            display: block;
+            margin: auto;
+            background-color: #03c75a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logo"></div>
+
+    <div class="divTitle">비밀번호</div>
+    <div class="divInput"><input type="text" id="pw1"><i class="fa-solid fa-lock"
+            id="IColor1"></i></div>
+    <div class="divHidden" id="result1"></div>
+
+    <div class="divTitle">비밀번호 재확인</div>
+    <div class="divInput"><input type="text" id="pw2"><i class="fa-solid fa-lock"
+            id="IColor2"></i></div>
+    <div class="divHidden" id="result2"></div>
+
+    <div class="btn"><button id="btnCheck">비밀번호 확인</button></div>
+
+
+    <script>
+    
+        // 비밀번호 입력하면 초록색으로 바뀌고
+        // 아래만 비밀번호 틀리면 빨간색으로 변경
+
+        function movemove(element) {
+            element.animate([
+                { transform: 'translate(0, 0);' },
+                { transform: 'translate(-3px, 0)' },
+                { transform: 'translate(-1px, 0)' },
+                { transform: 'translate(6px, 0)' },
+                { transform: 'translate(3px, 0)' },
+                { transform: 'translate(1px, 0)' },
+                { transform: 'translate(0, 0)' },
+            ], {
+                duration: 500,
+                delay: 100
+            });
+        }
+
+
+        function writeBlank(element) {element.innerHTML = "";}
+
+        function earlyLockColor(element) {
+            element.style.color = '#EEEEEE';
+        }
+        function beRightColor(element) {
+            element.style.color = '#03c75a';
+        }
+
+        function beWrongColor(element) {
+            element.style.color = 'red';
+        }
+
+        let pwResult1 = document.getElementById("result1");
+        let pwResult2 = document.getElementById("result2");
+        let pwInput1 = document.getElementById("pw1");
+        let pwInput2 = document.getElementById("pw2");
+        let pwBtn = document.getElementById("btnCheck");
+        let changeIColor1 = document.getElementById("IColor1");
+        let changeIColor2 = document.getElementById("IColor2");
+
+        
+        pwBtn.onclick = function() {
+
+            let pwCheck1 = pwInput1.value;
+            let pwCheck2 = pwInput2.value;
+
+            if (pwCheck1 == "" && pwCheck2 == "") { pwResult1.innerHTML = "필수 정보입니다."; pwResult2.innerHTML = "필수 정보입니다.";
+            } else if (pwCheck1 == "") { pwResult1.innerHTML = "필수 정보입니다."; 
+            } else if (pwCheck2 == "") { pwResult2.innerHTML = "필수 정보입니다."; 
+            } else if ((pwCheck1 == pwCheck2) && (pwCheck1.length>7)) {
+                pwResult2.innerHTML = "패스워드가 일치합니다.";
+                beRightColor(pwResult2);
+                beRightColor(changeIColor1);
+                beRightColor(changeIColor2);
+            } else if ((pwCheck1 !== pwCheck2) && (pwCheck1.length>=7)) {
+                pwResult2.innerHTML = "패스워드가 일치하지 않습니다.";
+                beWrongColor(pwResult2);
+                beWrongColor(changeIColor2);
+            } 
+        }
+
+        pwInput1.onkeyup = function(){
+
+            let pwCheck1 = pwInput1.value;
+
+            beRightColor(changeIColor1);
+
+            if (pwCheck1 == "") {
+                earlyLockColor(changeIColor1);
+                earlyLockColor(changeIColor2);
+                writeBlank(pwResult1);
+                writeBlank(pwResult2);
+            } else {
+                if(pwCheck1.length<8){
+                    beWrongColor(changeIColor1);
+                    pwResult1.innerHTML = "8자 이상 길이를 입력하세요.";
+                    
+                }else{
+                    beRightColor(changeIColor1);
+                    writeBlank(pwResult1);
+                    writeBlank(pwResult2);
+               }
+            } 
+        }
+
+        pwInput2.onkeyup = function(){
+
+            let pwCheck1 = pwInput1.value;
+
+            if(pwCheck1.length<8){
+                beWrongColor(changeIColor1);
+                pwResult1.innerHTML = "8자 이상 길이를 입력하세요.";
+            }else{
+                earlyLockColor(changeIColor2);
+                writeBlank(pwResult1);
+                writeBlank(pwResult2);
+            }
+
+        }
+        
+
+
+
+// 1) 얘만 실행됨
+// pwInput1.onkeyup = function() {pwResult1.innerHTML = ""; }
+
+// ===
+
+// function writeBlank(element) {element.innerHTML = "";}
+
+// 2) 실행안됨
+// pwInput1.onkeyup = function() {pwResult1.writeBlank; }
+// >> pwInput1.onkeyup = writeBlank(pwResult1); 이렇게 해야함.
+
+// 3) 실행안됨
+// pwInput1.onkeyup = pwResult1.writeBlank; 
+
+// ★ 중요
+
+// 매개변수가 있으면 인자는 들어가야해요
+// void는 return을 안해서 반환값이 없는녀석
+
+
+
+// 제가 쓴건
+// Listener에 바로 대입안한거라 가능
+
+// 아뇨 return이 없어요 void라서
+// 그냥 코드만 실행하고 반환값은 없는함수인데 저게
+// 리턴이 없으니까 아무일도 안일어나게 되는거
+
+
+// 자바스크립트는 자료형을 따로 명시안한다고 했잖아요
+
+// 그래서 함수안에 return문이 따로없으면 다 void고
+// return을 넣어줘야 반환값이 생기는것같아요
+
+// pop이랑 pop() 이거 차이
+// 명확하게 구분하셔야함
+
+// pwInput1.onkeyup = function() {writeBlank(pwResult1)};
+// 이것도 되네요 그냥 익명함수를 새로만들어서 때려박아버리는거같은데 Listener가 좀 특이케이스인가봐요
+
+
+
+// pwInput1.onkeyup = () => writeBlank(pwResult1);
+
+
+// function writeBlank(element) {element.innerHTML = "";}
+// function test() {writeBlank(pwResult1);}
+// pwInput1.onkeyup = test;
+
+
+
+        
+// 함수선언) function writeBlank(element) {element.innerHTML = "";}
+
+// 1) pwInput1.onkeyup = () => writeBlank(pwResult1);
+// ()=> 이건 그냥 익명함수 만드는 간소화 문법인가봐요 : 화살표함수
+
+// 2) function test() {writeBlank(pwResult1);}
+//     pwInput1.onkeyup = test;
+
+// 3) pwInput1.onkeyup = function(){writeBlank(pwResult1);}
+
+
+
+// pwInput1.onkeyup = function() {pwResult1.innerHTML = "";}
+// pwInput2.onkeyup = function() {pwResult2.innerHTML = "";}
+
+
+
+// 파라미터가 있는 함수를 핸들러로 사용하려면 꼭 익명함수?
+// - NO. 익명함수도 되고, 일반 함수도 가능
+
+
+    </script>
+
+</body>
+
+</html>

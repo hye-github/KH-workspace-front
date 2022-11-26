@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 콘솔을 계속 켜진상태에서 해야하는듯.. 뭔가 이상함.
+
+        // push / pop & shift / unshift
+        let beverage = ["Americano"]; // 컵에 Americano 를 담은 상태. push는 아메리카노 위에 들어감. pop은 튕겨서 나가는 기능.
+        beverage.push("Cafe Latte");    // 배열의 가장 상단(마지막)에서 요소를 추가하는 기능
+        beverage.push("Orange Juice");
+
+        console.log(beverage);
+
+        let popData = beverage.pop(); // 배열의 가장 상단(마지막)에서 요소를 꺼내버리는 기능
+        console.log(popData);
+        console.log(beverage);
+
+        let shiftData = beverage.shift(); // 배열의 가장 하단(처음)에서 요소를 꺼내버리는 기능
+        console.log(shiftData);
+        console.log(beverage);
+
+        beverage.unshift("Mango Juice");  // 배열의 가장 하단(처음)에서 요소를 추가하는 기능
+        console.log(beverage);
+
+
+    </script>
+</body>
+</html>

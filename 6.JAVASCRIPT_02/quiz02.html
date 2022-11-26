@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>목록</legend>
+        <div id = "result"></div>
+    </fieldset>
+    <input type="text" placeholder="추가할 단어를 입력하세요." id="inputAdd"><button id="btnAdd">추가하기</button><br>
+    <input type="text" placeholder="삭제할 단어를 입력하세요." id="inputDel"><button id="btnDel">삭제하기</button><br>
+    <input type="text" placeholder="바뀔 단어를 입력하세요." id="inputCg1"> > <input type="text" placeholder="대체할 단어를 입력하세요." id="inputCg2"><button id="btnCg">대체하기</button>
+    <script>
+        let resultL = document.getElementById("result");
+        let inputAddL = document.getElementById("inputAdd");
+        let inputDelL = document.getElementById("inputDel");
+        let btnAddL = document.getElementById("btnAdd");
+        let btnDelL = document.getElementById("btnDel");
+        let btnCgL = document.getElementById("btnCg");
+        let inputCg1L = document.getElementById("inputCg1");
+        let inputCg2L = document.getElementById("inputCg2");
+
+        let arrylist = ["Apple","Banana","Grape"];
+        resultL.innerHTML = arrylist;
+
+        btnAddL.onclick= function() { // 유효성 검사 해야함.
+            arrylist.push(inputAddL.value);
+            resultL.innerHTML = arrylist;
+        }
+
+        btnDelL.onclick= function() {
+            let index = arrylist.indexOf(inputDelL.value);
+            arrylist.splice(index,1);
+            resultL.innerHTML = arrylist;
+        }
+
+        btnCgL.onclick= function() {
+            let index = arrylist.indexOf(inputCg1L.value);
+
+            arrylist.splice(index,1,inputCg2L.value); // -1이 나오면 맨 뒤의 값이라는 뜻. 그래서 버튼 누를 때마다 뒤에서 하나씩 단어 삭제 됨. 
+                                                      // 오동작 되니까 유효성 검사 해야함. 
+                                                      // 1) 비어있는 값이 있을 때,
+                                                      // 2) 값을 입력했지만 찾지 못했을 때도 생각해야함.
+            resultL.innerHTML = arrylist;
+        }
+
+
+
+
+// <!DOCTYPE html>
+// <html lang="en">
+
+// <head>
+//     <meta charset="UTF-8">
+//     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <title>Document</title>
+// </head>
+
+// <body>
+//     <fieldset>
+//         <legend>List</legend>
+//         <div id="list"></div>
+//     </fieldset>
+//     <input type=text id="inputWord"><button id="push">입력</button><br>
+//     <input type=text id="delWord"><button id="del">삭제</button>
+
+//     <script>
+
+//         function refresh() { document.getElementById("list").innerHTML = words; }
+
+//         // 초기화
+//         let words = [];
+//         document.getElementById("list").innerHTML = words;
+
+//         let textInput = document.getElementById("inputWord");
+//         let textDel = document.getElementById("delWord");
+//         let pushBtn = document.getElementById("push");
+//         let delBtn = document.getElementById("del");
+
+//         pushBtn.onclick = function () {
+//             if (textInput.value != "") { // 유효성 검사
+//                 let word = textInput.value;
+//                 words.push(word);
+//                 refresh();
+//                 textInput.value = "";
+//             } else {
+//                 alert("값을 입력하세요.");
+//             }
+//         }
+
+//         delBtn.onclick = function () {
+//             let delWord = textDel.value;
+//             let result = words.indexOf(delWord);
+//             if (result != -1) {
+//                 words.splice(result, 1); // 몇번째 요소에서 부터, 1
+//                 refresh();    
+//             }else{
+//                 alert("검색 대상을 찾을 수 없습니다.");
+//             }
+//             textDel.value = "";
+//         }
+
+
+
+//     </script>
+// </body>
+
+// </html>
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
+

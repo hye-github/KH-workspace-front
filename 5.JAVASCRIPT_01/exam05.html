@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 함수 ( Function ) -->
+    <!-- first class fuction -->
+
+    <!-- <script>
+        function plus(num1, num2){
+            return num1 + num2;
+        }
+        
+        let result = plus(10,5);
+        console.log(result);
+
+    </script> -->
+
+    <!-- <script>
+        function plus(num1, num2){
+            return num1 + num2;
+        }
+
+        let abc = plus; // 가능은 하다. 실제로 이렇게는 안함. 함수의 이름이 주소값이다. 함수는 소스코드가 저장된 주소값이다 
+
+        let result = abc(10,5);
+        console.log(result);
+    </script> -->
+
+    <!-- <script>
+        function plus(num1, num2){
+            return num1 + num2;
+        }
+        
+        let abc = plus(); /// 이거는 함수를 콜하고 나온 값을 변수에 담겠다는 뜻.
+
+        console.log(abc);
+    </script> -->
+
+    <!-- <script>
+        let minus = function(num1, num2){
+            // 메서드의 이름을 만들지 않고 만든 함수를 익명함수. anonymous
+            return num1 - num2;
+        }
+
+        let result = minus(10,5);
+        console.log(result);
+    </script> -->
+
+
+    <script>
+
+        let minus = function(num1, num2){
+            return num1 - num2;
+        }
+
+        function func(fu, num1, num2){
+            return fu(num1,num2);
+        }
+
+
+
+        // let result = func(minus,10,5);
+        // console.log(result);
+
+        let result = func(function(num1,num2){return num1*num2;},10,5);
+        console.log(result);
+
+        // 익명함수의 활용사례
+        // 저건 파라미터 설명 // 함수의 인자로 함수도 넣을수있다 // 그냥 인자값 대입인가
+        
+    </script>
+
+
+
+
+<!-- 자바는 오른쪽 매개변수/왼쪽 리턴 데이터 타입 -->
+<!-- 함수를 값으로 다룬다 -->
+
+자바에서 운영 메모리를 4가지로 나눈다. 
+stack : 지역 변수와 매개변수를 저장하는 용도
+heap : new 하는 애들이 들어감.
+text : code 영역. 
+data : 스태틱 키워드가 붙은 것들을 관리함
+
+</body>
+</html>

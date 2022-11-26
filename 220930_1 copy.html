@@ -1,0 +1,47 @@
+<!-- 아래 조건에 맞는 사진 갤러리를 구현하기 위한 HTML 코드를 작성하였으나 정상적으로 보이지 않았다. 
+    조건과 HTML문서를 분석하여 문제점, 원인, 해결방안을 작성하시오.(단, 이미지는 해당경로에 정상적으로 존재한다.) -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>KH 정보교육원</title>
+    <style>
+        .img-box {
+            /* position: relative;  */
+            border: 1px black solid; /* */
+            margin: 0 auto;
+            width: 365px;
+            height: 610px;
+            /* height: 400px; */
+        }
+        .img-box>img {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            top: 50px;
+            background-color: aqua;
+            /* z-index: 10; */
+        }
+        #first {
+            /* top: 0px;  */
+            left: 20px;
+        }
+        #second {
+            /* top: 205px;  */
+            left: 80px;
+            /* z-index: 25; */
+        }
+        #third {
+            /* top: 410px;  */
+            left: 140px;
+        }
+    </style>
+</head>
+<body>
+    <div class="img-box">
+        <img id="first" src="images/img_1.png">
+        <img id="second" src="images/img_2.png">
+        <img id="third" src="images/img_3.png">
+    </div>
+</body>
+</html>

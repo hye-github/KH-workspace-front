@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+    <style>
+        @media (min-width: 768px) {
+            .container {
+                width: 500px;
+            }
+        }
+
+        .container {
+            margin-top: 200px;
+        }
+
+        h1 {
+            font-weight: 900;
+        }
+
+        .center {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .title {
+            margin-top: 30px;
+        }
+
+        .form-check {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container border bg-light">
+        <form class="px-4 py-3" action="signin.MembersController">
+            <div class="mb-3 center">
+                <h1>Login Box</h1>
+            </div>
+            <div class="row mb-3 title">
+                <label for="inputId" class="col-sm-2 col-form-label">Id</label>
+                <div class="col-sm-10">
+                    <input type="id" class="form-control" id="inputId">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword">
+                </div>
+            </div>
+            <div class="center">
+                <button class="btn btn-primary">Sign in</button>
+                <a href="member/signup.html"><button type="button" class="btn btn-primary">Sign up</button></a>
+                <div class="row mb-3">
+                    <div class="form-check">
+                        <input type="checkbox" id="gridCheck1">
+                        <label class="form-check-label" for="gridCheck1">
+                            Remember me
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <script>
+
+        $("#memberout").on("click", function () {
+            Swal.fire({
+                title: '회원 탈퇴를 진행하시겠습니까?',
+                showConfirmButton: false,
+                showDenyButton: true,
+                showCancelButton: true,
+                denyButtonText: '회원 탈퇴',
+            }).then((result) => {
+                if (result.isDenied) {
+                    Swal.fire('회원 탈퇴가 완료 되었습니다.', '', 'success')
+                    console.log("회원 탈퇴 진행 중");
+                }
+            }).then((result) => {
+                $("#memberoutFrm").on("submit", function () {
+                    console.log("회원 탈퇴 완료");
+                })
+            })
+        });
+
+    </script>
+</body>
+
+</html>

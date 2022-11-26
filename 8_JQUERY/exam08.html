@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <style>
+        div{border: 1px solid black;}
+    </style>
+</head>
+<body>
+    <div id="input" contenteditable="true">ABC</div>
+    <script>
+        // 키 이벤트가 발생했을 때 콜백 함수를 통해 입력된 값이 무엇인지 찾을 수 있다.
+        $("#input").on("keydown",function(e){
+            if(e.keyCode==13 && e.shiftKey == false){ // 사용자 입력이 enter key 라면
+
+                
+                return false;
+            }
+        });
+
+
+         // <div id="chat"><span id="lineHeight"></span></div>
+        // if($("#lineHeight").height() > 300){
+        //     $("#box1").height($("#box1").height() + 22) 
+        // }
+
+    </script>
+</body>
+</html>

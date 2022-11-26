@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid black;
+        }
+        .container {
+            width: 800px;
+        }
+        .header {
+            height: 100px;
+        }
+        .contents {
+            height: 400px;
+        }
+        .footer {
+            height: 80px;
+        }
+
+        /* div {
+            display: block;
+            기본값
+            div에서 기본으로 가지고 있는 속성. 한줄을 혼자 독점하려는 속성
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+
+        button {
+            display: inline;
+            기본값
+        }
+
+        span {
+            border: 1px solid black;
+            display: inline-block;
+            기본값 display: inline;
+            width: 100px;
+            height: 100px;
+            사이즈 바뀌지않음
+        } */
+    </style>
+</head>
+
+<body>
+    <!-- Layout 의 역사 -->
+    <!-- Table -> Positioning -> (display:inline-block + span) vs (div + float) 
+        -> display:flex -> display:grid -->
+
+    <!-- (div+float) -> Bootstrap5 -->
+
+    <!-- div 성질 이해 : 
+        넓이는 혼자서 한 라인을 독점하는 성질을 가진다.
+        높이값이 없으면 0, 내용만큼만 높이를 차지한다. -->
+
+    <div class="container">
+        <div class="header">Header</div>
+        <div class="contents">Contents</div>
+        <div class="footer">Footer</div>
+    </div>
+
+
+
+    <!-- <div class="container">
+        div
+    </div>
+    <div class="container">
+        div
+    </div>
+
+    <hr>
+
+    <button>abc</button>
+    def
+
+    <hr>
+
+    <span>sapn</span>
+    <span>sapn</span>
+    <span>sapn</span>
+
+    <hr>
+
+    <p>
+        abc
+    </p>
+    def -->
+
+</body>
+
+</html>

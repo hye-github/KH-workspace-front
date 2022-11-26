@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+        body {
+            margin: 0px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            cursor: pointer;
+            color: blueviolet;
+            font-weight: bolder;
+        }
+
+        .container {
+            width: 800px;
+            margin: auto;
+            margin-top: 10px;
+            /* 중앙 정렬하고 싶을 때 */
+            overflow: hidden;
+        }
+
+        .header {
+            height: 90px;
+        }
+
+        .header>div {
+            float: left;
+            height: 100%;
+        }
+
+        .header>.logo {
+            width: 165px;
+            text-align: center;
+            background-color: slateblue;
+        }
+
+        .header>.title {
+            width: 550px;
+            background-color: slateblue;
+        }
+
+        .header>.reserved {
+            width: 85px;
+            background-color: slateblue;
+        }
+
+        .navigator {
+            height: 40px;
+            padding: 3px 0 0 0;
+        }
+
+        .navigator>ul {
+            overflow: hidden;
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+            background-color: slateblue;
+            color: white;
+        }
+
+        .navigator>ul>li {
+            float: left;
+            width: 25%;
+            height: 100%;
+            text-align: center;
+            list-style: none;
+            line-height: 35px;
+        }
+
+        .navigator>ul>li:hover {
+            cursor: pointer;
+            background-color: rgb(80, 60, 211);
+        }
+
+        .contents {
+            height: 460px;
+            padding: 3px 0 0 0;
+        }
+
+        .contents>div {
+            float: left;
+            height: 100%;
+        }
+
+        .contents>.main {
+            width: 70%;
+            padding: 0 3px 0 0;
+        }
+
+        .contents>.main>.gameimg {
+            width: 100%;
+        }
+
+        .contents>.main>.gameimg>img {
+            width: 100%;
+        }
+
+        .contents>.main>.hr-sect {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 17px;
+            color: slateblue;
+            width: 100%;
+            display: flex;
+            flex-basis: 100%;
+            align-items: center;
+            color: slateblue;
+            margin: 8px 0px;
+        }
+
+        .hr-sect::before,
+        .hr-sect::after {
+            content: "";
+            flex-grow: 1;
+            background: slateblue;
+            height: 1px;
+            font-size: 0px;
+            line-height: 0px;
+            margin: 0px 16px;
+        }
+
+
+        .contents>.main>.minigamebox>.minigame {
+            float: left;
+            margin: 10px;
+        }
+
+        .contents>.main>.minigamebox>.minigame>a:hover {
+            cursor: pointer;
+        }
+
+        .contents>.mypage {
+            width: 30%;
+
+        }
+
+        .contents>.mypage>.loginbox {
+            width: 100%;
+            height: 25%;
+            margin: auto;
+        }
+
+
+        .contents>.mypage>.loginbox>.logintitle {
+            height: 25%;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bolder;
+            line-height: 23px;
+            background-color: slateblue;
+            color: white;
+        }
+
+
+        .contents>.mypage>.loginbox>.idpwbuttonbox {
+            padding: 3px 0 0 0;
+            width: 100%;
+            height: 55%;
+        }
+
+        .contents>.mypage>.loginbox>.idpwbuttonbox>div {
+            float: left;
+        }
+
+        .contents>.mypage>.loginbox>.idpwbuttonbox>.idpwbox {
+            width: 70%;
+            height: 100%;
+            border: none;
+        }
+
+        .contents>.mypage>.loginbox>.idpwbuttonbox>.idpwbox>.id {
+            width: 100%;
+            height: 50%;
+        }
+
+        .contents>.mypage>.loginbox>.idpwbuttonbox>.idpwbox>.id>input {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            font-size: 10px;
+            border-radius: 10px;
+            border: 1px solid rgb(190, 180, 255);
+        }
+
+        .contents>.mypage>.loginbox>.idpwbuttonbox>.idpwbox>.pw {
+            width: 100%;
+            height: 50%;
+        }
+
+        .contents>.mypage>.loginbox>.idpwbuttonbox>.idpwbox>.pw>input {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            font-size: 10px;
+            border-radius: 10px;
+            border: 1px solid rgb(190, 180, 255);
+        }
+
+        .contents>.mypage>.loginbox>.idpwbuttonbox>.buttonbox {
+            width: 30%;
+            height: 100%;
+            border: none;
+            /* padding: auto; */
+        }
+
+        .contents>.mypage>.loginbox>.idpwbuttonbox>.buttonbox>input {
+            width: 90%;
+            height: 90%;
+            margin: 5%;
+            border-radius: 10px;
+            background-color: slateblue;
+            color: white;
+            border: none;
+            /* margin: auto; */
+        }
+
+        .contents>.mypage>.loginbox>.idpwbuttonbox>.buttonbox>input:hover {
+            cursor: pointer;
+            background-color: rgb(80, 60, 211);
+        }
+
+
+        .contents>.mypage>.loginbox>.infor {
+            height: 20%;
+            text-align: center;
+            font-size: 10px;
+            line-height: 19px;
+        }
+
+
+
+        .contents>.mypage>.emailbox {
+            height: 75%;
+            padding: 3px 0 0 0;
+        }
+
+        .contents>.mypage>.emailbox>.emailtitle {
+            height: 7%;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bolder;
+            line-height: 19px;
+            background-color: slateblue;
+            color: white;
+        }
+
+        .contents>.mypage>.emailbox>.emailcontents {
+            overflow-y: auto;
+            height: 93%;
+        }
+
+        .contents>.mypage>.emailbox>.emailcontents>.email {
+            padding: 5px 0 5px 10px;
+            font-size: 7px;
+            border: 1px solid rgb(190, 180, 255);
+            margin: 3px 0 0 0;
+        }
+
+
+
+
+        .footer {
+            height: 70px;
+            font-family: 'Staatliches', cursive;
+            font-size: 15px;
+            color: rgb(190, 180, 255);
+            line-height: 50px;
+            text-align: center;
+            letter-spacing: 10px;
+        }
+
+        .footer>.footerhr {
+            border: 1px solid rgb(190, 180, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo"><img src="logo.png"></div>
+            <div class="title"><img src="title.jpg"></div>
+            <div class="reserved"><img src="reserved.jpg"></div>
+        </div>
+        <div class="navigator">
+            <ul>
+                <li>Home</li>
+                <li>About Me</li>
+                <li>Portfolio</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+        <div class="contents">
+            <div class="main">
+                <div class="gameimg"><img src="gameimg.jpg"></div>
+                <div class="hr-sect">Game Start Link</div>
+                <div class="minigamebox">
+                    <div class="minigame"><a href=""><img src="game01.jpg"></a></div>
+                    <div class="minigame"><a href=""><img src="game02.jpg"></a></div>
+                    <div class="minigame"><a href=""><img src="game03.jpg"></a></div>
+                    <div class="minigame"><a href=""><img src="game04.jpg"></a></div>
+                    <div class="minigame"><a href=""><img src="game05.jpg"></a></div>
+                </div>
+            </div>
+            <div class="mypage">
+                <div class="loginbox">
+                    <div class="logintitle">LoginBox</div>
+                    <div class="idpwbuttonbox">
+                        <div class="idpwbox">
+                            <div class="id"><input type="text" placeholder="ID를 입력하세요."></div>
+                            <div class="pw"><input type="password" placeholder="PW를 입력하세요."></div>
+                        </div>
+                        <div class="buttonbox">
+                            <input type="button" value="Login">
+                        </div>
+                    </div>
+                    <div class="infor"><a href="">회원가입</a> / <a href="">ID,PW찾기</a></div>
+                </div>
+                <div class="emailbox">
+                    <div class="emailtitle">Email Box</div>
+                    <div class="emailcontents">
+                        <div class="email">1번째 메일입니다.</div>
+                        <div class="email">2번째 메일입니다.</div>
+                        <div class="email">3번째 메일입니다.</div>
+                        <div class="email">4번째 메일입니다.</div>
+                        <div class="email">5번째 메일입니다.</div>
+                        <div class="email">6번째 메일입니다.</div>
+                        <div class="email">7번째 메일입니다.</div>
+                        <div class="email">8번째 메일입니다.</div>
+                        <div class="email">9번째 메일입니다.</div>
+                        <div class="email">10번째 메일입니다.</div>
+                        <div class="email">11번째 메일입니다.</div>
+                        <div class="email">12번째 메일입니다.</div>
+                        <div class="email">13번째 메일입니다.</div>
+                        <div class="email">14번째 메일입니다.</div>
+                        <div class="email">15번째 메일입니다.</div>
+                        <div class="email">16번째 메일입니다.</div>
+                        <div class="email">17번째 메일입니다.</div>
+                        <div class="email">18번째 메일입니다.</div>
+                        <div class="email">19번째 메일입니다.</div>
+                        <div class="email">20번째 메일입니다.</div>
+                        <div class="email">21번째 메일입니다.</div>
+                        <div class="email">22번째 메일입니다.</div>
+                        <div class="email">23번째 메일입니다.</div>
+                        <div class="email">24번째 메일입니다.</div>
+                        <div class="email">25번째 메일입니다.</div>
+                        <div class="email">26번째 메일입니다.</div>
+                        <div class="email">27번째 메일입니다.</div>
+                        <div class="email">28번째 메일입니다.</div>
+                        <div class="email">29번째 메일입니다.</div>
+                        <div class="email">30번째 메일입니다.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <hr class="footerhr">Copyright by J.
+        </div>
+    </div>
+</body>
+
+</html>

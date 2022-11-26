@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <fieldset id="result">
+        <legend>목록</legend>
+        내용
+    </fieldset>
+    <input type="text" placeholder="앞에 추가할 값" id="inputFront"> <button id="btnFroPlus">앞쪽에 추가</button> <button id="btnFroDel">앞에서 삭제</button><br>
+    <input type="text" placeholder="뒤에 추가할 값" id="inputBack"> <button id="btnBacPlus">뒷쪽에 추가</button> <button id="btnBacDel">뒤에서 삭제</button>
+
+    <script>
+        let result = document.getElementById("result");
+        let inputFront = document.getElementById("inputFront");
+        let inputBack = document.getElementById("inputBack");
+        let btnFroPlus = document.getElementById("btnFroPlus");
+        let btnFroDel = document.getElementById("btnFroDel");
+        let btnBacPlus = document.getElementById("btnBacPlus");
+        let btnBacDel = document.getElementById("btnBacDel");
+
+        let arrylist = [];
+        // 배열은 램속에 저장. ui에 다이렉트로 반영되지는 않아서 콘솔창에서만 보인다. ui에 반영하는 코드까지 넣어주어야한다.
+        // 바인딩
+
+        function refresh(){
+            result.innerHTML = "<legend>목록</legend>" + arrylist;
+        }
+
+
+        btnFroPlus.onclick = function (){ // 앞쪽에 추가 버튼
+            arrylist.unshift(inputFront.value); // 배열은 램속에 저장. ui에 다이렉트로 반영되지는 않아서 콘솔창에서만 보인다.
+            result.innerHTML = "<legend>목록</legend>" + arrylist;  // ui에 반영하는 코드까지 넣어주어야한다.
+            inputFront.value = ""; // 입력된 값 지워지도록도 구현 깔끔하게
+        }
+
+        btnBacPlus.onclick = function (){ // 뒷쪽에 추가 버튼
+            arrylist.push(inputBack.value);
+            result.innerHTML = "<legend>목록</legend>" + arrylist;
+            inputBack.value = ""; 
+        }
+
+        btnFroDel.onclick = function (){ // 앞에서 삭제 버튼
+            arrylist.shift();
+            refresh();
+        }
+
+        btnBacDel.onclick = function (){ // 뒤에서 삭제 버튼
+           arrylist.pop();
+           refresh();
+        }
+        
+// <!DOCTYPE html>
+// <html lang="en">
+// <head>
+//     <meta charset="UTF-8">
+//     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <title>Document</title>
+// </head>
+// <body>
+    
+//     <fieldset id="list">
+//         <legend>Fruits</legend>
+//         <div id="fruits"></div>
+//     </fieldset>
+//     <input type=text id="frontText">
+//     <button id="addFront">앞쪽에 추가</button>
+//     <button id="delFront">앞쪽에서 삭제</button><br>
+
+//     <input type=text id="backText">
+//     <button id="addBack">뒷쪽에 추가</button>
+//     <button id="delBack">뒷쪽에서 삭제</button><br>
+
+//     <script>
+
+//         function refresh(){fruitsList.innerHTML = fruits;}
+//         // 초기화 작업
+//         let fruits = ["Apple","Orange","Mango","Banana"];
+//         let fruitsList = document.getElementById("fruits");
+//         fruitsList.innerHTML = fruits;
+
+//         // 앞쪽에 추가하기 버튼 처리
+//         let addFrontBtn = document.getElementById("addFront");
+//         addFrontBtn.onclick = function(){
+//             let frontText = document.getElementById("frontText");
+//             fruits.unshift(frontText.value); 
+//             refresh();
+//             frontText.value = "";
+//         }
+
+//         // 앞쪽 데이터 삭제 버튼 처리
+//         let delFrontBtn = document.getElementById("delFront");
+//         delFrontBtn.onclick = function(){
+//             fruits.shift();
+//             refresh();
+//         }
+
+//         let addBackBtn = document.getElementById("addBack");
+//         addBackBtn.onclick = function(){
+//             let backText = document.getElementById("backText");
+//             fruits.push(backText.value);
+//             refresh();
+//             backText.value="";
+//         }
+//         let delBackBtn = document.getElementById("delBack");
+//         delBackBtn.onclick = function(){
+//             fruits.pop();
+//             refresh();
+//         }
+
+//     </script>
+
+
+// </body>
+// </html>
+    </script>
+</body>
+</html>
+
+
+

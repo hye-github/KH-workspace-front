@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <style>
+        div{border:1px solid black;}
+    </style>
+</head>
+<body>
+    <button class="btn" id="temp">Button1</button>
+    <button class="btn">Button2</button>
+    <button class="btn">Button3</button>
+    <button class="btn">Button4</button>
+    <button class="btn">Button5</button>
+
+    <script>
+        console.log($("#temp").html()); // 얘는 됨
+        // console.log($(".btn")[0].html()); // 얘 에러남
+        console.log($(".btn")[0].innerHTML); // 오브젝트(자바스크립트 객체)라 자바스크립트 때 쓰던 문법으로 해야함. 타입을 한번 확인하고 문법을 수정해야함.
+        console.log($($(".btn")[0]).html()); // 제이쿼리 노드로 형변환 된다.
+
+        let btns = $(".btn"); // 배열
+    
+
+        
+        //
+        $(".btn").on("click",function(){ // 내부적으로는 for 문임.
+            alert($(this).html());  // 배열에서 노드하나 빼오면 노드 아니게되는거 // $(".btn") = 이 자체가 노드 // 이 배열에서 하나 빼오면 다시 노드로 묶어줘야함.
+        }); // 한꺼번에 작동한다. 
+        //
+
+
+
+        $(".btn").on("click",function(){
+            alert(this.innerHTML); 
+        });
+    </script>
+
+    <!-- <script>
+        let btns = document.getElementsByClassName("btn"); // 당연히 배열...^^...
+        // btns.onclick // 이거 안됨. 버튼 엘레먼트가 아니라 버튼 엘레먼트를 저장하고 있는 배열이다. 정상동작하지않는다.
+        // btns[0].onclick = function() {
+        //     alert(this.innerHTML);
+        // }
+        // btns[1].onclick = function() {
+        //     alert(this.innerHTML);
+        // }
+        // btns[2].onclick = function() {
+        //     alert(this.innerHTML);
+        // }
+        // 반복문이잖아? ^^
+
+        for (let i = 0; i < btns.length; i++){
+            btns[i].onclick = function(){
+                alert(this.innerHTML);
+            }
+        }
+    </script> -->
+</body>
+</html>
+
+

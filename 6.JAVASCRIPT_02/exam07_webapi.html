@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> 
+    <!-- cdn방식 -->
+</head>
+
+<body>
+    <!-- WEB API 란  = 라이브러리, 프레임워크랑 유 사 : 네이버지도도 WEB API의 일종 -->
+    <!-- Framework : 특정 목적을 달성하기 위해 모여진 라이브러리 집합 + 제작을 위한 Convention & Rule -->
+    <!-- Library : 누군가에 의해 개발되어져, 가져다가 사용하기만 하면 되는 도구 개념 -->
+    <!-- API ( Application Programming Interface ) 
+        Library 내에서 정보은닉 된 영역을 배제한 사용자에게 공개된 부분만을 칭하는 sub 집합 -->
+
+    <input type="text" id="postcode" placeholder="우편번호">
+    <input type="button" id="btnSearch" value="우편번호 찾기"><br>
+    <input type="text" id="address1" placeholder="지번주소">
+    <input type="text" id="address2" placeholder="상세주소">
+
+    <script>
+        document.getElementById("btnSearch").onclick = function() {
+
+            // new daum.Postcode({}).open();
+            // daum : 변수 - 라이브러리 통해서 가져옴
+            // Postcode : 생성자 - 라이브러리 통해서 가져옴
+            // 생성자에 객체 리터럴이 전달 중
+            // oncomplete 이란 key랑 value 한쌍으로 구성되어있다
+            // oncomplete: function(data)의 인자인 data는 주소 정보를 담고 있는 객체다. 담고 있는 정보의 갯수가 꽤 많다.
+
+            new daum.Postcode({
+                oncomplete: function (data) {
+                    // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                    // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                    document.getElementById('postcode').value = data.zonecode;
+                    document.getElementById("address1").value = data.jibunAddress;
+
+                }
+            }).open();
+        }
+    </script>
+
+
+</body>
+
+</html>

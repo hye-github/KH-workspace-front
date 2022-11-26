@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        div {
+            border: 1px solid black;
+        }
+
+        .container {
+            width: 300px;
+            height: 200px;
+            margin: auto;
+            overflow-y: auto; 
+        }
+
+        .item {
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- overflow 속성 / overflow : 넘쳐 흐르다 -->
+    overflow: hidden; : 넘쳐흐를 경우 감춰주세요.
+    overflow: scroll; : 넘쳐흐를 경우 스크롤을 달아주세요. / 횡스크롤까지 같이 나옴
+    overflow-y: scroll; : y축이 넘쳐흐를 경우 스크롤을 달아주세요. / 내용이 없어도 스크롤모양이 나옴
+    overflow-y: auto; : y축 내용이 넘쳐흐를 경우 스크롤을 달아주세요. 내용이 적을 땐 스크롤이 없다.
+    overflow: hidden; : 넘쳐흐를 경우
+
+
+
+    <div class="container">
+        <div class="item">Apple</div>
+        <div class="item">Apple</div>
+        <div class="item">Apple</div>
+        <div class="item">Apple</div>
+        <div class="item">Apple</div>
+        <div class="item">Apple</div>
+        <div class="item">Apple</div>
+        <div class="item">Apple</div>
+    </div>
+
+
+</body>
+
+</html>

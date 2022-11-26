@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        div {
+            border: 1px solid black;
+        }
+        .container{
+            width: 800px;
+            overflow: hidden;
+        }
+        .header>div{
+            float: left;
+            height: 100%;
+        }
+        .header{
+            height: 100px;
+        }
+        .header>.logo{
+            width: 20%;
+        }
+        .header>.title{
+            width: 65%;
+        }
+        .header>.reserved{
+            width: 15%;
+        }
+        .contents{
+            height: 500px;
+        }
+        .footer{
+            height: 80px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">Logo</div>
+            <div class="title">Title</div>
+            <div class="reserved">Reserved</div>
+        </div>
+        <div class="contents">Contents</div>
+        <div class="footer">Footer</div>
+    </div>
+</body>
+</html>

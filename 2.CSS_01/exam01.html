@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 3. Inline Style Sheet */
+
+        /* 태그 선택자 (div에만 반영) 
+        div{ 
+            border:1px solid black; 
+            background-color: dodgerblue;
+        } */
+
+        /* 클래스 선택자 
+        .diva{
+            background-color: bisque;
+        }
+        .divb{
+            background-color: brown;
+        } */
+
+        /* 아이디 선택자 (절대 겹치게 쓰면 안된다.) 
+        #idc{
+            border: 1px solid orange;
+        } */
+
+        
+        .diva{ /* 클래스 선택자가 우선 순위가 높다. 범위가 좁을 수록 강하다. */
+            color: red;
+        }
+
+        div{ /* 스타일이 중복되면 마지막에 작성된 것이 실행된다. */
+            color: blue;
+        }
+
+        #ida{ /* id선택자가 우선 된다. 매우 범위가 좁기때문에 */
+            color: green;
+        }
+        *{/* ALL 전체 반영 스타일 */
+            background-color: gray;
+            color: pink;
+        }
+
+    </style>
+
+</head>
+<body>
+    <table style="border:1;">
+        <!-- 2. Internal Style Sheet -->
+    </table>
+
+    <!-- 
+        css ( Cascade Style Sheet )
+        HTML 문서내의 요소(태그)들을 꾸미고, Layout을 잡아주는 역할
+
+        스타일시트 적용 방법 3가지
+
+        1. External Style Sheet
+            대량
+            <link rel="stylesheet" href='https://t1.daumcdn.net/keditor/dist/0.7.20/style/editor-plugins.css'>
+
+        2. Internal Style Sheet
+            body 내 직접 삽입
+
+        3. Inline Style Sheet
+            head > style 내 직접 삽입
+
+    -->
+
+    <div class="diva" id="ida" style="color:yellow">A</div> <!-- 인라인 스타일보다 더 우선시 된다. -->
+    <div class="divb">B</div>
+    <div id="idc">C</div>
+    <input type="button" value="버튼">
+    
+</body>
+</html>

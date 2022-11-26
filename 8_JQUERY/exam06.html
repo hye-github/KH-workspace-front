@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <style>
+        div{border: 1px solid black;}
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: dodgerblue;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+    <button id="show">Show</button>
+    <button id="hide">Hide</button>
+    <script>
+        $("#show").on("click",function(){
+            $("#box").fadeIn(1000, function(){ // 1s
+                alert("show가 완료 되었을 때 실행 될 함수");
+            }); 
+
+            // $("#box").slideDown(1000, function(){ // 1s
+            //     alert("show가 완료 되었을 때 실행 될 함수");
+            // }); 
+
+            // $("#box").show(1000, function(){ // 1s
+            //     alert("show가 완료 되었을 때 실행 될 함수");
+            // }); 
+
+            // $("#box").show(); // 인자값 줄 수 있음
+        })
+        $("#hide").on("click",function(){
+            $("#box").fadeOut(1000, function(){ // 1s
+                alert("hide가 완료 되었을 때 실행 될 함수");
+            }); 
+
+            // $("#box").slideUp(1000, function(){ // 1s
+            //     alert("hide가 완료 되었을 때 실행 될 함수");
+            // }); 
+
+            // $("#box").hide(1000, function(){ // 1s
+            //     alert("hide가 완료 되었을 때 실행 될 함수");
+            // }); 
+
+            // $("#box").hide(); // 인자값 줄 수 있음
+        })
+    </script>
+</body>
+</html>

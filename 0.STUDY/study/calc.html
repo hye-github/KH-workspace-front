@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            position: relative;
+            font-size: 0;
+        }
+
+        .box {
+            border: 1px solid black;
+            width: 40%;
+            transform: translate(75%, 0);
+        }
+
+        #title {
+            width: 100%;
+            height: 40px;
+            line-height: 35px;
+            text-align: center;
+            font-size: medium;
+        }
+
+        #oper {
+            position: absolute;
+            width: 100%;
+            height: 40px;
+            padding-left: 10px;
+            line-height: 35px;
+            text-align: left;
+            font-size: large;
+            color: rgb(160, 160, 160);
+        }
+
+        #result {
+            width: 100%;
+            height: 40px;
+            padding-right: 10px;
+            text-align: right;
+            font-size: x-large;
+            font-weight: bold;
+            border: 1px solid rgb(192, 192, 192);
+            overflow: hidden;
+        }
+
+        input::-webkit-inner-spin-button {
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+        }
+
+        button {
+            margin: 0px;
+            border: 0px;
+            font-size: large;
+            background-color: rgb(248, 248, 248);
+            border: 1px solid rgb(192, 192, 192);
+        }
+
+        button:hover {
+            background-color: rgb(224, 224, 224);
+        }
+
+        button:active {
+            background-color: rgb(192, 192, 192);
+        }
+
+        button:not(.x2) {
+            width: 25%;
+            height: 100%;
+        }
+
+        .btn_number {
+            font-weight: bold;
+        }
+
+        .x2 {
+            width: 50%;
+            height: 100%;
+        }
+
+        #btn_result {
+            background-color: rgb(192, 192, 248);
+        }
+
+        #btn_result:hover {
+            background-color: rgb(160, 160, 248);
+        }
+
+        #btn_result:active {
+            background-color: rgb(128, 128, 248);
+        }
+
+        .row>[class^=col] {
+            text-align: center;
+            font-size: 0;
+        }
+
+        #log {
+            border: 1px solid black;
+            font-size: medium;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div id="title">계산기(easy)</div>
+            <div id="oper"></div>
+            <div id="result">0</div>
+            <div class="row gy-0 btn_box">
+                <div class="col-12">
+                    <button class="x2" id="btn_clear">Clear</button>
+                    <button class="x2" id="btn_bs">Back</button>
+                </div>
+                <div class="col-12">
+                    <button class="btn_number">7</button>
+                    <button class="btn_number">8</button>
+                    <button class="btn_number">9</button>
+                    <button class="btn_oper">/</button>
+                </div>
+                <div class="col-12">
+                    <button class="btn_number">4</button>
+                    <button class="btn_number">5</button>
+                    <button class="btn_number">6</button>
+                    <button class="btn_oper">*</button>
+                </div>
+                <div class="col-12">
+                    <button class="btn_number">1</button>
+                    <button class="btn_number">2</button>
+                    <button class="btn_number">3</button>
+                    <button class="btn_oper">-</button>
+                </div>
+                <div class="col-12">
+                    <button class="btn_number x2">0</button>
+                    <button id="btn_result">=</button>
+                    <button class="btn_oper">+</button>
+                </div>
+            </div>
+            <div id="log"></div>
+        </div>
+    </div>
+    <script>
+        // 미션1 : 각 숫자버튼을 클릭할때 숫자를 result div 태그에 입력되게 하기
+        // - 조건 : 각 버튼에 id 할당하지 않음. 클래스명으로 가져오는법 알아볼 것.
+        // - 힌트 : array
+
+        let btn_number = document.getElementsByClassName("btn_number");
+        console.log(btn_number);
+
+        // ** 특정 index만 꺼내쓰는 것이 아니라 숫자와 index가 일치하도록 sorting 하는 목적이라면 다시 배열에 담는것이 좋습니다.
+        // ** ex) let num = []; num.push(btn_number[9], btn_number[6], btn_number[7] ...);
+        let num0 = btn_number[9];
+        let num1 = btn_number[6];
+        let num2 = btn_number[7];
+        let num3 = btn_number[8];
+        let num4 = btn_number[3];
+        let num5 = btn_number[4];
+        let num6 = btn_number[5];
+        let num7 = btn_number[0];
+        let num8 = btn_number[1];
+        let num9 = btn_number[2];
+
+
+        // 배열이 어떤 법칙으로 저장되는지, 꺼내서 사용할 방법 생각해보기
+
+
+
+        let resultView = document.getElementById("result");
+        // ** 규칙적으로 반복되는 코드는 반복문으로 줄일수 있습니다. 만약 버튼이 10개가 아니라 1000개라면?
+        // ** ex) function numClick(?) {num[?].onclick = function() {resultView.innerHTML = parseInt(resultView.innerHTML + ?);}}
+        num0.onclick = function () { resultView.innerHTML = parseInt(resultView.innerHTML + 0); };
+        num1.onclick = function () { resultView.innerHTML = parseInt(resultView.innerHTML + 1); };
+        num2.onclick = function () { resultView.innerHTML = parseInt(resultView.innerHTML + 2); };
+        num3.onclick = function () { resultView.innerHTML = parseInt(resultView.innerHTML + 3); };
+        num4.onclick = function () { resultView.innerHTML = parseInt(resultView.innerHTML + 4); };
+        num5.onclick = function () { resultView.innerHTML = parseInt(resultView.innerHTML + 5); };
+        num6.onclick = function () { resultView.innerHTML = parseInt(resultView.innerHTML + 6); };
+        num7.onclick = function () { resultView.innerHTML = parseInt(resultView.innerHTML + 7); };
+        num8.onclick = function () { resultView.innerHTML = parseInt(resultView.innerHTML + 8); };
+        num9.onclick = function () { resultView.innerHTML = parseInt(resultView.innerHTML + 9); };
+
+
+        let btnClear = document.getElementById("btn_clear");
+        let btnBack = document.getElementById("btn_bs");
+        let btn_result = document.getElementById("btn_result");
+        let btnOper = document.getElementsByClassName("btn_oper");
+
+        console.log(btnOper);
+        console.log(btnOper[0].innerHTML);
+        console.log(btnOper[1].innerHTML);
+        console.log(btnOper[2].innerHTML);
+        console.log(btnOper[3].innerHTML);
+
+        let addition = btnOper[3]; // +
+        let subtraction = btnOper[2]; // -
+        let multiplication = btnOper[1]; // *
+        let division = btnOper[0]; // /
+
+
+        let calc = [];
+        console.log(calc);
+
+        addition.onclick = function () {
+            calc.push(parseInt(resultView.innerHTML)); // ** 이거 접근 방식 훌륭하네요. Excellent
+            // calc.push(btnOper[3].innerHTML);
+            console.log(calc);
+            resultView.innerHTML = ""; // ** = 버튼을 누를 때 에러 요인입니다. 1 + = 순서대로 입력해볼 것
+
+            // ** 보기 편하게 div 하나 넣어놨읍니다.
+            document.getElementById('log').innerHTML = "";
+            for (i = 0; i < calc.length; i++) { document.getElementById('log').innerHTML += 'calc[' + i + '] : ' + calc[i] + '<br>'; }
+        };
+
+        // ** 수식 작성 후 = 버튼을 누른 뒤에 다시 숫자를 누르면 결과값에서 누른 숫자가 이어지는 현상이 발생합니다.
+        // ** 이 경우에 window 계산기는 저장된 숫자를 초기화 시키고 다시 입력받음. (단, = 버튼 뒤에 연산자 버튼을 누르면 이어서 계산)
+        // ** = 버튼으로 결과 본 뒤, 이어서 연산할 때 목표값과 다른값이 도출. (8 + 2 = (10) + 5 순서대로 해볼 것)
+        btn_result.onclick = function () {
+            // calc.push(parseInt(resultView.innerHTML));
+
+            console.log(calc[0]);
+            console.log(calc[1]);
+            console.log(calc[2]);
+            console.log(calc[3]);
+            console.log(calc[4]);
+            console.log(calc[5]);
+            console.log(calc[6]);
+
+
+            for (let i = 0; i < calc.length; i++) {
+                resultView.innerHTML = parseInt(resultView.innerHTML) + parseInt(calc[i]);
+            };
+
+        };
+
+        console.log(calc);
+
+
+        btnClear.onclick = function () {
+            calc = [];
+            resultView.innerHTML = "";
+            console.log(calc);
+        };
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 다음의 Field 를 가지는 Student 생성자를 만들어주세요.
+        //     id / name / score
+        
+        // 2. 배열을 생성하여 다음의 인스턴스들을 저장해주세요.
+        // 1번 인스턴스 : 1001 , Tom , {국어:80,영어:90}
+        // 2번 인스턴스 : 1002 , Jane , {국어:100,영어:70}
+        // 3번 인스턴스 : 1003 , Mike , {국어:50,영어:100}
+
+        // 3. 모든 학생의 이름 / 합계 / 평균을 출력하세요. (반복문으로..)
+
+
+        function Student(id,name,score) {
+            this.id = id;
+            this.name = name;
+            this.score = score;
+        }
+
+        let newStudent = [new Student(1001,"Jane",{"kor":80,"eng":90}),
+        new Student(1002,"Tom",{"kor":100,"eng":70}),
+        new Student(1003,"Mike",{"kor":50,"eng":100})]
+
+        // let newStudent = [];
+        // newStudent[0] = new Student(1001,"Jane",{"kor":80,"eng":90})
+        // newStudent[1] = new Student(1002,"Tom",{"kor":100,"eng":70})
+        // newStudent[2] = new Student(1003,"Mike",{"kor":50,"eng":100})
+
+
+        let newResult = function() {
+            for(i=0 ; i<newStudent.length ; i++) {
+               console.log( "이름 : " + newStudent[i].name 
+                + " / 합계 : " + (newStudent[i].score.kor + newStudent[i].score.eng) 
+                + " / 평균 : " + (newStudent[i].score.kor + newStudent[i].score.eng)/2 )
+            }
+        }
+
+        newResult();
+
+
+//
+
+
+        let student = [{ 
+            "id":1001,
+            "name":"Jane",
+            "score":{"kor":80,"eng":90}
+        },
+        { 
+            "id":1002,
+            "name":"Tom",
+            "score":{"kor":100,"eng":70}
+        },
+        { 
+            "id":1003,
+            "name":"Mike",
+            "score":{"kor":50,"eng":100}
+        }]
+
+        // console.log( "이름 : " + student[0].name 
+        // + " / 합계 : " + (student[0].score.kor + student[0].score.eng) 
+        // + " / 평균 : " + (student[0].score.kor + student[0].score.eng)/2 );
+
+        let result = function() {
+            for(i=0 ; i<student.length ; i++) {
+               console.log( "이름 : " + student[i].name 
+                + " / 합계 : " + (student[i].score.kor + student[i].score.eng) 
+                + " / 평균 : " + (student[i].score.kor + student[i].score.eng)/2 )
+            }
+        }
+
+        result();
+
+    </script>
+</body>
+</html>

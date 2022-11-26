@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{box-sizing: border-box;}
+        div{border: 1px solid black;}
+        .container{
+            width: 300px;
+            height: 300px;
+            margin: auto;
+        }
+        .container>.box1{
+            position: relative;
+            /* position: static; 정적인, 고정되어있는 / default(고정값)이다. 그래서 안된다. */
+            /* position: relative; 연관지어서, 상대적인 /  */
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            left: 50px;
+            /* top, left 사용하려면 position 정해줘야함 */
+            /* margin을 이용하면 box2도 같이 밀림 */
+        }
+        .container>.box2{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            left: -50px;
+            /* 원래 있어야하는 위치에서 이동 중 */
+        }
+    </style>
+</head>
+<body>
+    <!-- Position -->
+    <!-- Relative : Normal Flow 상에서 요소가 원래 존재해야하는 위치를 기준으로 상대적인 위치 -->
+
+
+    <div class="container">
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person = {
+            "name":"Jack",  // "name":"Jack", 에러가 안나게 쿼테이션 붙이는게 가장 좋고, name:"Jack",도 가능하긴함.
+            "contact":"01012344321",
+            "hello":function(){
+                console.log("Hello My Name is " + this.name);
+            },
+            "hobby":["Java","Reading","Piano"],
+            "score":{
+                "kor":80,
+                "eng":100,
+                "math":50
+            },
+            "favoriteFruits":function(){ // function()은 자바스크립트 문법이라서 기능은 다른거랑 주고받기 힘들다. 데이터만 된다.
+                return ["Apple","Stroberry","Blueberry"]
+            },
+            "abilities":function(){
+                return {
+                    "java":function(){return 100;},
+                    "css":function(){return 90;},
+                    "js":function(){return 70;}
+                }
+            },
+            "helloTo":function(friend){
+                console.log("Hello " + friend.name);
+            },
+            "Dron":function(){ // 멤버필드에 왜 생성자 넣어두냐? -> person에 Dron 생성자가 담겨있구나.
+                this.brand = "Samsung";
+                this.price = 100000;
+            }
+        };
+        console.log(person.name);
+        console.log(person.contact);
+        person.hello();
+        console.log(person.hobby);
+        console.log(person.hobby[2]); // 3번째 취미를 출력하세요.
+
+        // person의 자료형은 객체이다. JSON
+
+        console.log(person.score.eng); // 영어점수를 출력하세요.
+
+        console.log(person.favoriteFruits()[1]);
+        // Jack이 좋아하는 두번째 과일을 출력하세요.
+
+        console.log(person.abilities().java());
+        // Jack의 특기 중 첫번째 특기 점수를 출력하세요.
+
+        person.helloTo({"name":"Susan"}); // {} 객체를 전달하겠다.
+
+        let dron = new person.Dron(); // 멤버필드에 왜 생성자 넣어두냐? -> person에 Dron 생성자가 담겨있구나.
+        
+        console.log(dron.brand);
+        console.log(dron.price);
+
+
+    </script>
+</body>
+</html>

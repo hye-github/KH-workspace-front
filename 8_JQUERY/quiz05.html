@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <style>
+        div{border: 1px solid black; overflow-y: auto; width: 500px; height: 500px; margin: auto; padding-left: 20px;}
+        button{margin-top: 10px; margin-left: 10px;}
+    </style>
+</head>
+<body>
+    <div></div>
+    <center><button id="up">위로 추가 하기</button><button id="down">아래로 추가 하기</button></center>
+
+
+    <script>
+    let no = 1;
+    
+    $("#up").on("click", function(){
+        $("div").prepend("<p>New Line : " + no++ +"</p>");
+    });
+    $("#down").on("click", function(){
+        $("div").append("<p>New Line : " + no++ +"</p>");
+    });
+    </script>
+
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            box-sizing: border-box;
+        }
+
+        #wrapper {
+            margin: auto;
+            width: 400px;
+            height: 400px;
+        }
+
+        #contents {
+            border: 1px solid black;
+            width: 100%;
+            height: 90%;
+            overflow-y: auto;
+        }
+
+        #controls {
+            text-align: center;
+            line-height: 35px;
+            width: 100%;
+            height: 10%;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+</head>
+
+<body>
+    <div id=wrapper>
+        <div id=contents>
+        </div>
+        <div id=controls>
+            <button id=prepend>위로 추가 하기</button>
+            <button id=append>아래로 추가 하기</button>
+        </div>
+    </div>
+    <script>
+        let count = 1;
+        $("#prepend").on("click", function () {
+            let div = $("<div>");
+            div.append("New Line : " + count++);
+
+            $("#contents").prepend(div);
+        })
+
+        $("#append").on("click", function () {
+            let div = $("<div>");
+            div.append("New Line : " + count++);
+
+            $("#contents").append(div);
+        })
+    </script>
+</body>
+
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <style>
+        #box {
+            margin: auto;
+            border: 1px solid black;
+            width: 500px;
+            height: 500px;
+            text-align: left;
+            overflow-y: scroll;
+        }
+
+        .container {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="box"></div>
+        <button id="up">위로 추가하기</button>
+        <button id="down">아래로 추가하기</button>
+    </div>
+
+    <script>
+        let count = 1;
+        function getBtn() {
+            let seq = count;
+            return $("<button>").html("New Line : " + count++).on("click", () => {
+                alert(seq + "번 버튼입니다.");
+            });
+        }
+        $("#up").on("click", () => {
+            $("#box").prepend($("<div>").append(getBtn()));
+        });
+
+        $("#down").on("click", () => {
+            $("#box").append($("<div>").append(getBtn()));
+        });
+
+    </script>
+</body>
+
+</html> -->

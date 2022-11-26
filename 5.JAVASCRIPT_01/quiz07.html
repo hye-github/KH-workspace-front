@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- onmouseover -->
+    <!-- onmouseout -->
+
+    <button id="btn">여기 버튼</button>
+
+    <script>
+
+        btn // 버전에 의해서 호환성이 좋지 않음.
+        document.getElementById("btn") // 호환성이 좋음.
+
+
+        document.getElementById("btn").onmouseover = function () {
+            document.getElementById("btn").innerHTML = "마우스 올라왔음!";
+        }
+
+        document.getElementById("btn").onmouseout = function () {
+            document.getElementById("btn").innerHTML = "마우스 나갔음!";
+        }
+
+
+
+
+    </script>
+
+
+
+    <!-- <button id="mouse">여기 버튼</button>
+
+    <script>
+        let mouseOnOff = document.getElementById("mouse");
+
+        mouseOnOff.onmouseover = function () {
+            mouseOnOff.innerHTML = "마우스 올라왔음!!!";
+        }
+
+        mouseOnOff.onmouseout = function () {
+            mouseOnOff.innerHTML = "마우스 나갔음!!!";
+        }
+
+    </script> -->
+
+
+
+
+
+
+
+</body>
+
+</html>

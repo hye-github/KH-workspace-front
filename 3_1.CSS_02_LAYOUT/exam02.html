@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{ /* 전체에 반영하는 무조건 반영하는 첫 설정 값*/
+            box-sizing: border-box; /* 인라인 보더가 설정됨 */
+        }
+        div{border: 1px solid black;}
+        .container{
+            width: 800px;
+            overflow: hidden;
+        }
+        .container>div{
+            float:left; /* 한줄을 독점하게 하지않는다. */
+            height: 500px;
+        }
+        .left{
+            width: 25%;
+        }
+        .center{
+            width: 50%;
+        }
+        .right{
+            /* width: 194px; */
+            width: 25%;
+        }
+    </style>
+</head>
+<body>
+    div.container
+    <div class="container">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>

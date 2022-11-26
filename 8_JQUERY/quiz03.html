@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
+<body>
+    
+    <input type="text" id="num1" placeholder="첫 번째 수"><input type="text" id="num2" placeholder="두 번째 수"><button id="add">+</button>
+    <div id="result"></div>
+    <script>
+        $("#add").on("click", function(){
+            let result = parseInt($("#num1").val()) + parseInt($("#num2").val());
+            $("#result").html(result);
+        })
+
+        // let num1 = $("#num1").val();
+        // let num2 = $("#num2").val();
+
+        // $("#add").on("click",function(){
+        //     let result = parseInt(num1) + parseInt(num2);
+        //     $("#result").html(result);
+        // })
+        // 이렇게 하면 변수에 넣은 값은 클릭 이전에 빈칸의 값을 가지고 있다. 그래서 계산이 안됨. 
+        // 클릭한 순간의 값을 넣어야하기때문에 함수 안에 넣어야한다.
+
+    </script>
+</body>
+</html>

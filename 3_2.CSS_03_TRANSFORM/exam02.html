@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{box-sizing: border-box;}
+        div{border: 1px solid black;}
+        .container{
+            position: relative; 
+            width: 3000px;
+            height: 3000px;
+            margin: auto;
+        }
+        .container>.box1{
+            position: absolute; 
+            /* 자신의 parent 요소(현재는 .container{position: relative;} 
+            - 기본이 static 이라 속성을 안주면 body) 를 기준으로 옮긴다. 
+            단, 무조건 가까운 parent 가 아닌 
+            가장 가까운 parent 중에서 postiton 속성이 static이 아닌 것을 기준으로 옮긴다. */
+            width: 100px;
+            height: 100px;
+            top:10px;
+            left: 10px;
+            background-color: red;
+            z-index: 5;
+        }
+        .container>.box2{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 5px;
+            left: 5px;
+            background-color: blue;
+            z-index: 6;
+            /* 요소 겹칠 때 위아래 지정시 사용. 
+            static이 잡혀있는 요소는 absolute 위로 올라오는게 불가능하다. 
+            늘 아래 깔린다.*/
+        }
+        .container>.box3{
+            width: 100px;
+            height: 100px;
+            top: 100px;
+            left: 100px;
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+    <!-- Position -->
+    <!-- Absolute : position 속성이 static이 아닌 가장 가까운 parent 요소를 기준으로 위치를 조정하는 속성
+        Normal Flow 대로 동작하지는 않는다. floating 은 아니다. -->
+    <!-- floating : 레이아웃을 잡는데 사용.
+    Position : 위치를 잡는데 사용. -->
+
+    <div class="container">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+
+</body>
+</html>

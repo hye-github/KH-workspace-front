@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // slice : 배열 안에서 요소들을 추출하여 반환하는 함수 ( 원본에 영향 x ) // 원본은 건드리지 않고 특정 요소들을 복사해서 가져온다. 삭제되는거 아님. 잘라내기 아니고 카피
+        let lang=["C","Java","Perl","Ruby","Python"];
+
+        let sub = lang.slice(2,3); // 2번에서 3번 전까지만 나옴.  Array(1) "Perl" length: 1
+        console.log(sub);
+        
+        let sub2 = lang.slice(2,4); // 4번의 왼쪽까지만 나옴. 4번은 포함되지않는다.
+        console.log(sub2);
+
+        console.log(lang);
+
+        // splice : 인자 조건에 따라 삭제 기능 또는 삽입 기능이 가능한 함수 ( 원본 데이터를 수정 ) // 원본에 영향 o
+
+        lang.splice(2,1); // 2번 부터 1개 / splice : 사전적 의미 : 잇다. 이어서 연결하다. 인덱스 
+
+//         [KH 김일중] [오후 3:18] 둘다 0이에요 요소가 하나일때는
+//         [KH 김일중] [오후 3:18] splice(start, count)
+
+// [KH 김일중] [오후 3:20] slice랑 splice랑 또 달라가지구 좀
+// [KH 김일중] [오후 3:20] 헛갈리네요 이게
+// [KH 김일중] [오후 3:20] 인자넣는게
+// [hi] [오후 3:20] 아
+// [hi] [오후 3:21] 내가 그래서 헷갈렸구나... 
+// [hi] [오후 3:21] 위에는 이해한대로가 맞긴했네요 ㅠ
+// [hi] [오후 3:21] 이것도 착각할 뻔.. 감사합니다
+
+
+
+
+        lang.splice(1,1); // 1번 요소에서 1개 만큼.  
+        lang.splice(1,1,"Assm"); //  1번 요소에서 1개만큼 지우고, 대신 "" 안의 자료를 넣는다.
+        console.log(lang);
+
+    </script>
+</body>
+</html>

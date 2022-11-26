@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <form action="dest.html" id="frm">
+        <input type="text" id="phone" placeholder="핸드폰 번호를 입력하세요."><br> 
+        <!-- <input type="text" id="phone" placeholder="핸드폰 번호를 입력하세요." required><br>  -->
+        <!-- required 넣으면 입력란 빈칸 안되게 하는 역할. 그리고 form 태그에 submit을 통해서 페이지 이동할 때 쓰는 버튼 -->
+        <button>제출</button>
+    </form>
+
+    <script>
+        // let inputPhone = document.getElementById("phone");
+        // // 이벤트 2개가 버튼에 달리면서 동시에 실행됨. 하나의 이벤트는 값이 정상인지 확인하려고하고, 다른 하나의 이벤트는 submit을 실행한다.
+
+        // let frm = document.getElementById("frm");
+
+        // frm.onsubmit = function(){ // 사용자가 데이터를 전달하려고 onsubmit 할 때, 
+        //     alert("TEST");
+        //     return false; // 핸드폰 번호가 맞지않으면 취소 시켜서 못넘어가게 만들 수 있다. submit 진행되지않게 한다.
+        // }
+
+
+
+        let inputPhone = document.getElementById("phone");
+        let frm = document.getElementById("frm");
+
+        frm.onsubmit = function(){ 
+            let str = inputPhone.value;
+            
+            if(str==""){
+                Swal.fire({
+                title: 'Error!',
+                text: '핸드폰 번호를 입력해주세요.',
+                icon: 'error',
+                confirmButtonText: '확인'
+                }).then(function(){ 
+                    inputPhone.focus(); // 입력창에 키보드 커서가 가는 기능
+                })
+                return false;  // submit 진행 멈추기용.
+            }
+            
+            let phoneRegex = /^01[016789][- ]?\d{3,4}[- ]?\d{4}$/;
+
+            if(!phoneRegex.test(str)){
+                Swal.fire({
+                title: 'Error!',
+                text: '핸드폰 번호 형식이 잘 못 되었습니다 : ' + str,
+                icon: 'error',
+                confirmButtonText: '확인'
+                }).then(function(){
+                    inputPhone.focus();
+                })
+                inputPhone.value="";
+                return false;  // submit 진행 멈추기용.
+            }
+
+        }
+
+    </script>
+</body>
+</html>

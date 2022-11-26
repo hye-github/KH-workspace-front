@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{box-sizing: border-box;}
+        div{border: solid 1px #8742f5;}
+        .container{
+            position: relative;
+            width: 500px;
+            height: 440px;
+            margin: auto;
+        }
+        .container>div>.imgcontent>img{
+            width: 90%;
+            height: 90%;
+            transition-duration: 1s;
+            
+            vertical-align: middle;
+        }
+        .container>div>.imgcontent{
+            height: 200px;
+            background-color: #ffffff70;
+            text-align: center;
+            line-height: 194px;
+        }
+
+        .container>div>.imgtilte{
+            height: 20px;
+            font-size: 10px;
+            text-align: center;
+            color: white;
+            background-color: #8742f570;
+            line-height: 15px;
+        }
+
+        .container>div>.imgcontent>img:hover{
+        transform: rotateY(360deg)
+        }
+
+        .container>div:hover{
+            z-index: 100;
+        }
+
+        .container>.imgbox1{
+            position: absolute;
+            top:50px;
+            left: 50px;
+            z-index: 1;
+        }
+
+        .container>.imgbox2{
+            position: absolute;
+            top:150px;
+            left: 150px;
+            z-index: 2;
+        }
+
+        .container>.imgbox3{
+            position: absolute;
+            top: 100px;
+            left: 230px;
+            z-index: 3;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="imgbox1">
+            <div class="imgcontent"><img src="img01.jpg"></div>
+            <div class="imgtilte">2022.09.19</div>
+        </div>
+        <div class="imgbox2">
+            <div class="imgcontent"><img src="img02.jpg"></div>
+            <div class="imgtilte">2021.08.18</div>
+        </div>
+        <div class="imgbox3">
+            <div class="imgcontent"><img src="img03.jpg"></div>
+            <div class="imgtilte">2020.07.17</div>
+        </div>
+    </div>
+</body>
+</html>

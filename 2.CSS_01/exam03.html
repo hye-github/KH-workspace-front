@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        /* 자손 선택자 (직계) : > */
+        /* div 직계를 선택하여 에 있는 div 바로 밑에 있는 h4만을 선택 */
+        /* div>h4{ 
+            background-color: chartreuse;
+        } */
+       
+        
+        /* 후손 선택자 (내부) : 띄어쓰기  */
+        /* div 내부에 있는 h4를 전부 선택 */
+        /* div h4{
+            background-color: chartreuse;
+        } */
+       
+
+        /* li h4, li>h4, ul>h4, ul>li>h4{
+            background-color:violet;
+        } */
+
+        /* div>h4, body>h4{
+            background-color: chartreuse;
+        } */
+
+
+        /* 동위 선택자 : + */
+        /* p 태그 바로 뒤에 있는 h4를 선택 */
+        /* 바로 앞에 있는 건 style sheet 로는 안된다. js로는 가능 */
+        /* p+h4{
+            background-color:chocolate;
+        } */
+
+        /* 동위선택자 : ~ */
+        /* p 태그 바로 뒤에 있는 형제 중에 li는 전부 다 */
+        p~li{
+            background-color: pink;
+        }
+
+        /* h4 태그들 중에서 클래스 이름이 title인거 선택 */
+        h4.title{
+            color: red;
+        }
+
+        /* h4태그들 중에서 클래스 이름이 title이며, 바로 밑에 있는 id="abc" 만을 선택하고, 그 후손 내부의 span 전부를 선택 */
+        h4.title>#abc span{
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    
+<h4 class="title">자/후손 선택자 연습</h4>
+<div class="title">방해꾼</div>
+
+    <div>
+        <h4>자손1 입니다.</h4>
+        <h4>자손2 입니다.</h4>
+        <ul>
+            <li>
+                <h4>후손 목록</h4>
+            </li>
+            <p>제목</p>
+            <li>후손1</li>
+            <li>후손2</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <div>
+        <h4>자손1 입니다.</h4>
+        <h4>자손2 입니다.</h4>
+        <ul>
+            <li>
+                <h4>후손 목록</h4>
+            </li>
+            <li>후손1</li>
+            <li>후손2</li>
+        </ul>
+    </div>
+
+    <h4>여기는 다른 family 입니다.</h4>
+
+</body>
+</html>

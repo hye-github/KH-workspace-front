@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btn{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">버튼</button>
+
+    <script>
+        
+        // window.onmousemove = function(){
+        //     console.log("마우스 감지!");
+        // }
+
+        // window.onmousemove = function(e){
+        //     console.log(e.x + ":" + e.y); // 좌표
+        // }
+
+
+
+        window.onmousemove = function(e){
+            document.getElementById("btn").style.left = e.x +'px';
+            document.getElementById("btn").style.top = e.y +'py';
+        }
+
+
+        // 익명함수로 사용하는 방법도 있다.
+        // 파라미터가 있는 함수를 핸들러로 사용하려면 꼭 익명함수?
+        // - NO. 익명함수도 되고, 일반 함수도 가능
+        
+        // function func(){
+        // }
+        // func
+
+
+
+
+
+
+    </script>
+</body>
+</html>

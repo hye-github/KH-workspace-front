@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <style>
+        .title {
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Input Controls</legend>
+        <input type="text" placeholder="제목" id="title"><br>
+        <input type="text" placeholder="내용" id="contents"><br>
+        <input type="text" placeholder="작성자" id="writer">
+        <button>추가하기</button>
+    </fieldset>
+    <hr>
+    <table border="1px">
+        <tr class="title">
+            <td>제목</td>
+            <td>내용</td>
+            <td>작성자</td>
+        </tr>
+    </table>
+
+    <script>
+
+        $("button").on("click", function () {
+           
+            let title = $("#title").val();
+            let contents = $("#contents").val();
+            let writer = $("#writer").val();
+
+            let tr = $("<tr>");
+            tr.append($("<td>").append(title)).append($("<td>").append(contents)).append($("<td>").append(writer));
+            // 한줄에 해당되는 td는 공통 td여서 안되는 것...으로 생각...
+            // 얘는 생성할 때 자체에 3개 넣어야하는게 안되는!! 공통 값으로 생각해버린다.
+            // [hi] [오후 3:10] 그 한줄씩 입력해서 생성은
+            // [hi] [오후 3:10] 한줄 생성하고 끝이니까 가능했는데
+            // [hi] [오후 3:10] 그래서 그냥 변수명 자체가 태그 입력하는 키? 같은거라 생각했음여
+            // [hi] [오후 3:11] 복사 붙여넣기 식으로 >>>>>>>>>>>>>>>> 그런데 얘가 아님!
+
+                
+            // let td = $("<td>");
+            // tr.append(td.append(title)).append(td.append(contents)).append(td.append(writer));
+            // 변수명에 담은 td가 공통 td여서 사용이 안된다.
+
+            $("table").append(tr);
+
+        });
+
+
+        // $("button").on("click", () => {
+        //     function getCol(index) {
+        //         return $("<td>").append($("input")[index].value);
+        //     }
+
+        //     function getRow() {
+        //         let row = $("<tr>");
+        //         for (i = 0; i < $("input").length; i++) { row.append(getCol(i)); }
+        //         return row;
+        //     }
+
+        //     $("table").append(getRow());
+        //     for (i = 0; i < $("input").length; i++) { $("input")[i].value = ""; } // input 칸 비우기
+        // });
+
+
+
+    </script>
+</body>
+
+</html>

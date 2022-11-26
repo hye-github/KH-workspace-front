@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = `<Docu~ // ' back quote를 사용해서 가능
+        교차 출처 리소스 공유(Cross-Origin Resource Sharing, CORS)는 
+        추가 HTTP 헤더를 사용하여, 한 출처에서 실행 중인 웹 애플리케이션이 
+        다른 출처의 선택한 자원에 접근할 수 있는 권한을 부여하도록 브라우저에 알려주는 체제입니다.
+        
+
+        "문서 전체 넣을 수 있는데 더블쿼테이션 등이 너무 많아서 안됨. 스크립트도 못넣음."
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        div {
+            border: 1px solid black;
+        }
+        .container{
+            width: 800px;
+            overflow: hidden;
+        }
+
+        .header{
+            height: 100px;
+        }
+        .header>div{
+            float: left;
+            height: 100%;
+        }
+        .header>.logo{
+            width: 20%;
+        }
+        .header>.title{
+            width: 65%;
+        }
+        .header>.reserved{
+            width: 15%;
+        }
+        .navigator{
+            height: 40px;
+        }
+        .contents{
+            height: 460px;
+        }
+        .contents>div{
+            float: left;
+            height: 100%;
+        }
+        .contents>.main{
+            width: 70%;
+        }
+        .contents>.mypage{
+            width: 30%;
+        }
+        .contents>.mypage>.loginbox{
+            height: 45%;
+        }
+        .contents>.mypage>.emailbox{
+            height: 55%;
+        }
+        .footer{
+            height: 80px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">Logo</div>
+            <div class="title">Title</div>
+            <div class="reserved">Reserved</div>
+        </div>
+        <div class="navigator">Navigator</div>
+        <div class="contents">
+            <div class="main">Main</div>
+            <div class="mypage">
+                <div class="loginbox">
+                    LoginBox
+                </div>
+                <div class="emailbox">
+                    EmailBox
+                </div>
+            </div>
+        </div>
+        <div class="footer">Footer</div>
+    </div>
+        `;
+
+        let regex = /class="(.+?)"/g; //g 플래그 안주면 처음부터 검색 시작
+
+        // regex.test(str); // 이렇게하면 true만 나옴. 있냐 없냐만 판단함.
+
+        // let result = regex.exec(str); 
+        // console.log(result);
+        // // 어떤 데이터가 나오는지, 배열의 0번 요소에 검색에 성공한게 나온다. 
+        // // 나머지는 멤버필드임.
+        // // 자바스크립트에 배열[] 은 객체이다. 그래서 .langth도 되고, .input도 되는거임.
+        // // 대상 검색에 실패하면 null 값이 나온다.
+    
+        // // 그룹화()를 하면 1번 요소도 나옴. 첫번째 그룹화 데이터가 나온다. 그룹화()할 때마다 그룹화 되어서 보임
+
+        // result = regex.exec(str);  //g 플래그 주면 검색 계속 이어나가게 하기 위해서 regex.exec(str); 를 반복해야함.
+        // console.log(result);
+
+        let result;
+        while ((result = regex.exec(str))!=null){
+            console.log(result[1]);
+        } // 배열이 안정적
+
+
+        // while (regex.exec(str)!=null){
+        //     console.log(RegExp.$_);
+             
+        // } // console.log(RegExp.$1); 정규식들이 같이 쓰는 $1 그룹이 너무 많으면 사용x
+
+        // 정규식의 $& -> 검색한거 전부 출력 : 자바스크립트에서는 result[0] 으로 쓰자.
+
+    </script>
+</body>
+</html>

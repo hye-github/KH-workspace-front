@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{box-sizing: border-box;}
+
+        div {border: 1px solid black;}
+
+        input{width: 100%; height: 45px;}
+
+        button{width: 100px; height: 45px;}
+
+        .container{width: 800px; height: 100%; margin: auto;}
+
+        .header{width: 100%; height: 70px; text-align: center; text-align: center; font-weight: 800;}
+
+        .contents{width: 100%; height: 450px;}
+
+        .row{width: 100%; height: 50px;}
+
+        .row>div{float: left; height: 100%;}
+
+        .title{width: 20%; line-height: 45px; text-align: right; padding-right: 20px;}
+        .box1{width: 40%;}
+        .box2{width: 40%; line-height: 45px; padding-left: 20px}
+        .box3{width: 80%; line-height: 45px;}
+
+        .footer{width: 100%; height: 70px; text-align: center; line-height: 65px;}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header"><h2>회원가입 정보 입력</h1></div>
+
+        <div class="contents">
+            <div class="row">
+                <div class="title">ID :</div>
+                <div class="box1"><input type="text" id="inputId" placeholder="사용하실 id를 입력하세요"></div>
+                <div class="box2"><button id="idcheck">중복확인</button></div>
+            </div>
+            <div class="row">
+                <div class="title">패스워드 :</div>
+                <div class="box1"><input type="text" id="inputId" placeholder="사용하실 id를 입력하세요"></div>
+                <div class="box2"></div>
+            </div>
+            <div class="row">
+                <div class="title">패스워드확인 :</div>
+                <div class="box1"><input type="text" id="inputId" placeholder="사용하실 id를 입력하세요"></div>
+                <div class="box2"></div>
+            </div>
+            <div class="row">
+                <div class="title">ID :</div>
+                <div class="box1"><input type="text" id="inputId" placeholder="사용하실 id를 입력하세요"></div>
+                <div class="box2"></div>
+            </div>
+            <div class="row">
+                <div class="title">ID :</div>
+                <div class="box1"><input type="text" id="inputId" placeholder="사용하실 id를 입력하세요"></div>
+                <div class="box2"></div>
+            </div>
+            <div class="row">
+                <div class="title">ID :</div>
+                <div class="box1"><input type="text" id="inputId" placeholder="사용하실 id를 입력하세요"></div>
+                <div class="box2"></div>
+            </div>
+            <div class="row">
+                <div class="title">우편번호 :</div>
+                <div class="box1"><input type="text" id="inputId" placeholder="사용하실 id를 입력하세요"></div>
+                <div class="box2"><button id="idcheck">찾기</button></div>
+            </div>
+            <div class="row">
+                <div class="title">주소1 :</div>
+                <div class="box3"><input type="text" id="inputId" placeholder="사용하실 id를 입력하세요"></div>
+            </div>
+            <div class="row">
+                <div class="title">주소2 :</div>
+                <div class="box3"><input type="text" id="inputId" placeholder="사용하실 id를 입력하세요"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <button id="regi">회원가입</button>
+            <button id="retype">다시입력</button>
+        </div>
+    </div>
+</body>
+</html>

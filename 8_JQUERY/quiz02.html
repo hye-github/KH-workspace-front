@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
+<body>
+    <p>P1</p>
+    <p>P2</p>
+    <p>P3</p>
+    <p>P4</p>
+    <input type="text" id="line" placeholder="줄 번호를 입력하세요."><input type="text" id="color" placeholder="색을 입력하세요."><button id="result">적용</button>
+    <script>
+        $("#result").on("click",function(){
+            $("p:nth-child("+$("#line").val()+")").css("background-color",$("#color").val());
+            $("#line").val("");
+            $("#color").val("");
+            $("#line").focus();
+        });
+
+        $("#apply").on("click", () => {
+            row = $("#row").val();
+            color = $("#color").val();
+            $("p")[row-1].style = "background-color:" + color;
+        });
+        // [KH 김일중] [오전 10:57] jquery 노드들을 배열로 가져오면
+        // [KH 김일중] [오전 10:58] 인덱스로 하나 꺼내는순간 노드가 아니라 자바스크립트 태그가 된대요
+        // $($("p")[row-1]) 이렇게 한번 더묶으라는거임 ㅋㅋ 
+        // [KH 김일중] [오전 10:58] 노드가 아니게 된걸
+        // [KH 김일중] [오전 10:58] 다시 달러로 묶어버리기
+
+    </script>
+</body>
+</html>

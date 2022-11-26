@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 부정 선택자 */
+        /* p태그인데 id가 id1이 아닌 것들을 선택 */
+        p:not(#id1){color: forestgreen;}
+
+    </style>
+</head>
+<body>
+    p[id=id$]{P태그 입니다.}*5
+    <p id="id1">P태그 입니다.</p>
+    <p id="id2">P태그 입니다.</p>
+    <p id="id3">P태그 입니다.</p>
+    <p id="id4">P태그 입니다.</p>
+    <p id="id5">P태그 입니다.</p>
+</body>
+</html>
